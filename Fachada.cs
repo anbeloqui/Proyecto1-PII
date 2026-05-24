@@ -4,11 +4,13 @@ public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
+    private MotorRecomendacion motor;
 
     public Fachada()
     {
         usuarios = new List<Usuario>();
         catalogo = new Catalogo();
+        motor = new MotorRecomendacion();
     }
 
     public void RegistrarUsuario(string nombre)
@@ -21,13 +23,26 @@ public class Fachada
         var item = new Item(nombre, artista, atributos);
         catalogo.AgregarItem(item);
     }
-   public Usuario? ObtenerUsuario(string nombre)
-{
-    return usuarios.Find(u => u.Nombre == nombre);
-}
+
+    public Usuario? ObtenerUsuario(string nombre)
+    {
+        return usuarios.Find(u => u.Nombre == nombre);
+    }
 
     public List<Item> ObtenerItems()
     {
         return catalogo.ObtenerItems();
+    }
+
+    public List<Item> Recomendar(string nombreUsuario)
+    {
+        Usuario? usuario = ObtenerUsuario(nombreUsuario);
+
+        if (usuario == null)
+        {
+            return new List<Item>();
+        }
+
+        return motor.Recomendar(usuario, catalogo.ObtenerItems());
     }
 }
