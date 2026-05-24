@@ -21,11 +21,10 @@ public class Fachada
         var item = new Item(nombre, artista, atributos);
         catalogo.AgregarItem(item);
     }
-
-    public Usuario ObtenerUsuario(string nombre)
-    {
-        return usuarios.Find(u => u.Nombre == nombre);
-    }
+   public Usuario? ObtenerUsuario(string nombre)
+{
+    return usuarios.Find(u => u.Nombre == nombre);
+}
 
     public List<Item> ObtenerItems()
     {
