@@ -1,0 +1,5 @@
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.AssemblyInfoInputs.cache
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.AssemblyInfo.cs
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.csproj.CoreCompileInputs.cache
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.sourcelink.json
