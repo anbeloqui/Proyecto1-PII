@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProyectoPII\\ProyectoPII\\ProyectoPII.csproj": {}
+    "/Users/alejandro/Documents/C#/Proyecto1-PII/ProyectoPII.csproj": {}
   },
   "projects": {
-    "C:\\ProyectoPII\\ProyectoPII\\ProyectoPII.csproj": {
+    "/Users/alejandro/Documents/C#/Proyecto1-PII/ProyectoPII.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProyectoPII\\ProyectoPII\\ProyectoPII.csproj",
+        "projectUniqueName": "/Users/alejandro/Documents/C#/Proyecto1-PII/ProyectoPII.csproj",
         "projectName": "ProyectoPII",
-        "projectPath": "C:\\ProyectoPII\\ProyectoPII\\ProyectoPII.csproj",
-        "packagesPath": "C:\\Users\\Andrés Beloqui\\.nuget\\packages\\",
-        "outputPath": "C:\\ProyectoPII\\ProyectoPII\\obj\\",
+        "projectPath": "/Users/alejandro/Documents/C#/Proyecto1-PII/ProyectoPII.csproj",
+        "packagesPath": "/Users/alejandro/.nuget/packages/",
+        "outputPath": "/Users/alejandro/Documents/C#/Proyecto1-PII/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Andrés Beloqui\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/alejandro/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
