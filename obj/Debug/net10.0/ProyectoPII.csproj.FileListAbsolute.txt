@@ -3,3 +3,13 @@ C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.AssemblyInfoInputs.cach
 C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.AssemblyInfo.cs
 C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.csproj.CoreCompileInputs.cache
 C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.sourcelink.json
+C:\ProyectoPII\ProyectoPII\bin\Debug\net10.0\ProyectoPII.exe
+C:\ProyectoPII\ProyectoPII\bin\Debug\net10.0\ProyectoPII.deps.json
+C:\ProyectoPII\ProyectoPII\bin\Debug\net10.0\ProyectoPII.runtimeconfig.json
+C:\ProyectoPII\ProyectoPII\bin\Debug\net10.0\ProyectoPII.dll
+C:\ProyectoPII\ProyectoPII\bin\Debug\net10.0\ProyectoPII.pdb
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.dll
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\refint\ProyectoPII.dll
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.pdb
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ProyectoPII.genruntimeconfig.cache
+C:\ProyectoPII\ProyectoPII\obj\Debug\net10.0\ref\ProyectoPII.dll
