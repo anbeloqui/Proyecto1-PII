@@ -1,7 +1,7 @@
-using RecomendadorBot.Interfaces;
-using RecomendadorBot.Models;
+using ProyectoPII.Interfaces;
+using ProyectoPII.Modelos;
 
-namespace RecomendadorBot.Services;
+namespace ProyectoPII.Servicios;
 
 public class Recomendador
 {
