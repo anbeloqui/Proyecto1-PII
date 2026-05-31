@@ -4,13 +4,13 @@ public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
-    private MotorRecomendacion motor;
+    private Recomendador motor;
 
     public Fachada()
     {
         usuarios = new List<Usuario>();
         catalogo = new Catalogo();
-        motor = new MotorRecomendacion();
+        motor = new Recomendador();
     }
 
     public void RegistrarUsuario(string nombre)
