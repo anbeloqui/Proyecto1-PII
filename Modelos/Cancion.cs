@@ -1,17 +1,11 @@
-namespace ProyectoPII;
+using ProyectoPII.Interfaces;
 
-public class Item
+namespace ProyectoPII.Modelos;
+
+public class Cancion : IRecomendable
 {
-    public string Nombre { get; set; }
-    public string Artista { get; set; }
-    public List<string> Atributos { get; set; }
-    public bool Eliminado { get; set; }
-
-    public Item(string nombre, string artista, List<string> atributos)
-    {
-        Nombre = nombre;
-        Artista = artista;
-        Atributos = atributos;
-        Eliminado = false;
-    }
+    public int Id { get; set; }
+    public string Nombre { get; set; } = "";
+    public string Artista { get; set; } = "";
+    public List<string> Atributos { get; set; } = new();
 }
