@@ -1,0 +1,1 @@
+[https://trello.com/invite/b/6a0cfe2f76543fbed9c04808/ATTId7f71e3313ed60e47b47b01b97fb29706A1BBD28/mi-tablero-de-trello](https://trello.com/invite/b/6a0cfe2f76543fbed9c04808/ATTId7f71e3313ed60e47b47b01b97fb29706A1BBD28/mi-tablero-de-trello)
