@@ -7,4 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+<ItemGroup>
+  <!-- Evita que el proyecto principal compile los archivos del proyecto de tests -->
+  <Compile Remove="ProyectoPII.Tests\**\*.cs" />
+  <EmbeddedResource Remove="ProyectoPII.Tests\**\*" />
+  <None Remove="ProyectoPII.Tests\**\*" />
+</ItemGroup>
+
 </Project>
