@@ -3,18 +3,27 @@ using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
 using ProyectoPII.Servicios;
 
-// Creamos un usuario de prueba.
-// Tiene preferencias musicales y un historial de canciones ya escuchadas.
+// ---------------------------------------------------------
+// PROGRAMA PRINCIPAL
+// ---------------------------------------------------------
+// Este archivo sirve para probar el funcionamiento del sistema.
+//
+// Creamos un usuario, un catálogo de canciones y luego usamos
+// el recomendador para obtener canciones sugeridas.
+//
+// La salida esperada es que recomiende canciones que coincidan
+// con las preferencias del usuario, pero que no estén en su historial.
+// ---------------------------------------------------------
 
 Usuario usuario = new Usuario
 {
     Id = 1,
     Nombre = "Ana",
 
-    // Géneros que le gustan.
+    // Preferencias musicales del usuario.
     Preferencias = new List<string> { "rock", "pop" },
 
-    // La canción con ID 1 ya fue consumida.
+    // La canción con ID 1 ya fue escuchada.
     HistorialIds = new List<int> { 1 }
 };
 
@@ -69,4 +78,4 @@ Console.WriteLine($"Recomendaciones para {usuario.Nombre}:");
 foreach (IRecomendable item in recomendaciones)
 {
     Console.WriteLine($"- {item.Nombre}");
-}
+} 
