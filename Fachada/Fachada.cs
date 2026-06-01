@@ -1,27 +1,38 @@
-namespace ProyectoPII;
+using ProyectoPII.Interfaces;
+using ProyectoPII.Modelos;
+using ProyectoPII.Servicios;
+
+namespace ProyectoPII.Fachada;
 
 public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
-    private Recomendador motor;
+    private Recomendador recomendador;
 
     public Fachada()
     {
         usuarios = new List<Usuario>();
         catalogo = new Catalogo();
-        motor = new Recomendador();
+        recomendador = new Recomendador();
     }
 
-    public void RegistrarUsuario(string nombre)
+    public void RegistrarUsuario(int id, string nombre)
     {
-        usuarios.Add(new Usuario(nombre));
+        usuarios.Add(new Usuario { Id = id, Nombre = nombre });
     }
 
-    public void AgregarItem(string nombre, string artista, List<string> atributos)
+    public void AgregarCancion(int id, string nombre, string artista, List<string> atributos)
     {
-        var item = new Item(nombre, artista, atributos);
-        catalogo.AgregarItem(item);
+        Cancion cancion = new Cancion
+        {
+            Id = id,
+            Nombre = nombre,
+            Artista = artista,
+            Atributos = atributos
+        };
+
+        catalogo.AgregarCancion(cancion);
     }
 
     public Usuario? ObtenerUsuario(string nombre)
@@ -29,20 +40,23 @@ public class Fachada
         return usuarios.Find(u => u.Nombre == nombre);
     }
 
-    public List<Item> ObtenerItems()
+    public List<Cancion> ObtenerCanciones()
     {
-        return catalogo.ObtenerItems();
+        return catalogo.ObtenerCanciones();
     }
 
-    public List<Item> Recomendar(string nombreUsuario)
+    public List<IRecomendable> Recomendar(string nombreUsuario)
     {
         Usuario? usuario = ObtenerUsuario(nombreUsuario);
 
         if (usuario == null)
         {
-            return new List<Item>();
+            return new List<IRecomendable>();
         }
 
-        return motor.Recomendar(usuario, catalogo.ObtenerItems());
+        return recomendador.RecomendarPorPreferencias(
+            usuario,
+            catalogo.ObtenerCanciones().Cast<IRecomendable>().ToList()
+        );
     }
 }
