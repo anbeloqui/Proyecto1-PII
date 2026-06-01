@@ -1,4 +1,4 @@
-namespace RecomendadorBot.Interfaces;
+namespace ProyectoPII.Interfaces;
 
 public interface IRecomendable
 {
