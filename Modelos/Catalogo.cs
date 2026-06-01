@@ -1,21 +1,16 @@
-namespace ProyectoPII;
+namespace ProyectoPII.Modelos;
 
 public class Catalogo
 {
-    public List<Item> Items { get; set; }
+    public List<Cancion> Canciones { get; set; } = new();
 
-    public Catalogo()
+    public void AgregarCancion(Cancion cancion)
     {
-        Items = new List<Item>();
+        Canciones.Add(cancion);
     }
 
-    public void AgregarItem(Item item)
+    public List<Cancion> ObtenerCanciones()
     {
-        Items.Add(item);
-    }
-
-    public List<Item> ObtenerItems()
-    {
-        return Items;
+        return Canciones;
     }
 }
