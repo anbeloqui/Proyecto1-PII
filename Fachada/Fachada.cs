@@ -1,6 +1,8 @@
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
 using ProyectoPII.Servicios;
+using ProyectoPII.Estrategias;
+
 
 namespace ProyectoPII.Fachada;
 
@@ -12,13 +14,16 @@ public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
-    private Recomendador recomendador;
+    private RecommendationEngine recommendationEngine;
 
     public Fachada()
     {
         usuarios = new List<Usuario>();
         catalogo = new Catalogo();
-        recomendador = new Recomendador();
+        recommendationEngine = new RecommendationEngine(
+            new EstrategiaPorPreferencias()
+        );
+
     }
 
     /// <summary>
@@ -201,7 +206,7 @@ public class Fachada
             return new List<IRecomendable>();
         }
 
-        return recomendador.Recomendar(
+        return recommendationEngine.Recomendar(
             usuario,
             ObtenerItems()
         );
