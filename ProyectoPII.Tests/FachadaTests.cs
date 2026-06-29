@@ -1,5 +1,6 @@
 using ProyectoPII.Fachada;
 using ProyectoPII.Modelos;
+using ProyectoPII.Interfaces;
 
 namespace ProyectoPII.Tests;
 
@@ -51,5 +52,31 @@ public class FachadaTests
             usuario!.Historial.ObtenerTodas(),
             i => i.ItemId == 10 && i.Tipo == TipoInteraccion.Consumido
         );
+    }
+
+    [Fact]
+    public void RecomendarDevuelveElementosSegunPreferencias()
+    {
+        Fachada.Fachada fachada = new();
+
+        fachada.RegistrarUsuario(1, "Ana");
+        fachada.AgregarPreferencia("Ana", "rock");
+
+        fachada.AgregarCancion(
+            1,
+            "Rock",
+            "Artista A",
+            new List<string> { "rock" });
+
+        fachada.AgregarCancion(
+            2,
+            "Pop",
+            "Artista B",
+            new List<string> { "pop" });
+
+        List<IRecomendable> resultado = fachada.Recomendar("Ana");
+
+        Assert.Single(resultado);
+        Assert.Equal("Rock", resultado[0].Nombre);
     }
 }
