@@ -199,6 +199,19 @@ public class Fachada
     /// <returns>Lista de elementos recomendados.</returns>
     public List<IRecomendable> Recomendar(string nombreUsuario)
     {
+        return Recomendar(nombreUsuario, "preferencias");
+    }
+    
+    /// <summary>
+    /// Genera recomendaciones utilizando la estrategia indicada.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <param name="tipoEstrategia">Tipo de estrategia a utilizar.</param>
+    /// <returns>Lista de elementos recomendados.</returns>
+    public List<IRecomendable> Recomendar(
+        string nombreUsuario,
+        string tipoEstrategia)
+    {
         Usuario? usuario = ObtenerUsuario(nombreUsuario);
 
         if (usuario == null)
@@ -206,9 +219,11 @@ public class Fachada
             return new List<IRecomendable>();
         }
 
-        return recommendationEngine.Recomendar(
+        RecommendationEngine engine = new RecommendationEngine(
+            StrategyFactory.Crear(tipoEstrategia, usuarios));
+
+        return engine.Recomendar(
             usuario,
-            ObtenerItems()
-        );
+            ObtenerItems());
     }
 }
