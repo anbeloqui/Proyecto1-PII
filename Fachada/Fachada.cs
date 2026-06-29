@@ -54,6 +54,19 @@ public class Fachada
     {
         return usuarios.Find(u => u.Nombre == nombre);
     }
+    
+    // Agrega una preferencia a un usuario registrado.
+    public void AgregarPreferencia(string nombreUsuario, string preferencia)
+    {
+        Usuario? usuario = ObtenerUsuario(nombreUsuario);
+
+        if (usuario == null)
+        {
+            return;
+        }
+
+        usuario.Preferencias.Add(preferencia);
+    }
 
      // Devuelve todas las canciones cargadas en el catálogo.
     public List<Cancion> ObtenerCanciones()
