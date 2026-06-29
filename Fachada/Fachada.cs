@@ -98,6 +98,18 @@ public class Fachada
         }
     }
 
+    // Registra un Like de un usuario sobre un item.
+    public void Like(string nombreUsuario, int itemId)
+    {
+        AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Like);
+    }
+
+    // Registra un Dislike de un usuario sobre un item.
+    public void Dislike(string nombreUsuario, int itemId)
+    {
+        AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Dislike);
+    }
+
      // Devuelve todas las canciones cargadas en el catálogo.
     public List<Cancion> ObtenerCanciones()
     {
