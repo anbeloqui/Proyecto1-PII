@@ -110,6 +110,12 @@ public class Fachada
         AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Dislike);
     }
 
+    // Guarda un item para despues
+        public void GuardarParaDespues(string nombreUsuario, int itemId)
+    {
+        AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Guardado);
+    }
+
      // Devuelve todas las canciones cargadas en el catálogo.
     public List<Cancion> ObtenerCanciones()
     {
