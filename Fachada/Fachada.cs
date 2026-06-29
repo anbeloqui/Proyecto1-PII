@@ -4,17 +4,10 @@ using ProyectoPII.Servicios;
 
 namespace ProyectoPII.Fachada;
 
-// ---------------------------------------------------------
-// CLASE FACHADA
-// ---------------------------------------------------------
-// Funciona como punto de entrada al sistema.
-//
-// En vez de que Program.cs tenga que manejar directamente
-// usuarios, catálogo y recomendador, se comunica con esta clase.
-//
-// Esto hace que el código quede más ordenado y más fácil
-// de usar desde afuera.
-// ---------------------------------------------------------
+/// <summary>
+/// Punto de entrada principal del sistema.
+/// Coordina usuarios, catálogo y recomendador.
+/// </summary>
 
 public class Fachada
 {
@@ -29,13 +22,41 @@ public class Fachada
         recomendador = new Recomendador();
     }
 
-    // Registra un nuevo usuario en el sistema.
+    /// <summary>
+    /// Registra un nuevo usuario en el sistema.
+    /// </summary>
+    /// <param name="id">Identificador del usuario.</param>
+    /// <param name="nombre">Nombre del usuario.</param>
     public void RegistrarUsuario(int id, string nombre)
     {
         usuarios.Add(new Usuario { Id = id, Nombre = nombre });
     }
 
-    // Agrega una canción al catálogo del sistema.
+    /// <summary>
+    /// Agrega un elemento recomendable al catálogo.
+    /// </summary>
+    /// <param name="item">Elemento a agregar.</param>
+    public void AgregarItem(IRecomendable item)
+    {
+        catalogo.AgregarItem(item);
+    }
+
+    /// <summary>
+    /// Elimina un elemento del catálogo según su identificador.
+    /// </summary>
+    /// <param name="id">Identificador del elemento a eliminar.</param>
+    public void EliminarItem(int id)
+    {
+        catalogo.EliminarItem(id);
+    }
+
+    /// <summary>
+    /// Agrega una canción al catálogo del sistema.
+    /// </summary>
+    /// <param name="id">Identificador de la canción.</param>
+    /// <param name="nombre">Nombre de la canción.</param>
+    /// <param name="artista">Artista de la canción.</param>
+    /// <param name="atributos">Atributos usados para recomendar.</param>
     public void AgregarCancion(int id, string nombre, string artista, List<string> atributos)
     {
         Cancion cancion = new Cancion
@@ -46,16 +67,24 @@ public class Fachada
             Atributos = atributos
         };
 
-        catalogo.AgregarCancion(cancion);
+        AgregarItem(cancion);
     }
 
-     // Busca un usuario por su nombre.
+    /// <summary>
+    /// Busca un usuario por su nombre.
+    /// </summary>
+    /// <param name="nombre">Nombre del usuario.</param>
+    /// <returns>Usuario encontrado, o null si no existe.</returns>
     public Usuario? ObtenerUsuario(string nombre)
     {
         return usuarios.Find(u => u.Nombre == nombre);
     }
     
-    // Agrega una preferencia a un usuario registrado.
+    /// <summary>
+    /// Agrega una preferencia a un usuario.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <param name="preferencia">Preferencia a agregar.</param>
     public void AgregarPreferencia(string nombreUsuario, string preferencia)
     {
         Usuario? usuario = ObtenerUsuario(nombreUsuario);
@@ -68,7 +97,12 @@ public class Fachada
         usuario.Preferencias.Add(preferencia);
     }
 
-    // Registra una interacción realizada por un usuario.
+    /// <summary>
+    /// Registra una interacción de un usuario con un elemento.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <param name="itemId">Identificador del elemento.</param>
+    /// <param name="tipo">Tipo de interacción realizada.</param>
     public void AgregarInteraccion(
         string nombreUsuario,
         int itemId,
@@ -98,31 +132,50 @@ public class Fachada
         }
     }
 
-    // Registra un Like de un usuario sobre un item.
+    /// <summary>
+    /// Registra un Like de un usuario sobre un elemento.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <param name="itemId">Identificador del elemento.</param>
     public void Like(string nombreUsuario, int itemId)
     {
         AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Like);
     }
 
-    // Registra un Dislike de un usuario sobre un item.
+    /// <summary>
+    /// Registra un Dislike de un usuario sobre un elemento.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <param name="itemId">Identificador del elemento.</param>
     public void Dislike(string nombreUsuario, int itemId)
     {
         AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Dislike);
     }
 
-    // Guarda un item para despues
-        public void GuardarParaDespues(string nombreUsuario, int itemId)
+    /// <summary>
+    /// Guarda un elemento para verlo después.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <param name="itemId">Identificador del elemento.</param>
+    public void GuardarParaDespues(string nombreUsuario, int itemId)
     {
         AgregarInteraccion(nombreUsuario, itemId, TipoInteraccion.Guardado);
     }
 
-     // Devuelve todas las canciones cargadas en el catálogo.
-    public List<Cancion> ObtenerCanciones()
+    /// <summary>
+    /// Devuelve todos los elementos recomendables del catálogo.
+    /// </summary>
+    /// <returns>Lista de elementos recomendables.</returns>
+    public List<IRecomendable> ObtenerItems()
     {
-        return catalogo.ObtenerCanciones();
+        return catalogo.ObtenerItems();
     }
 
-    // Devuelve el historial de interacciones de un usuario.
+    /// <summary>
+    /// Devuelve el historial de interacciones de un usuario.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <returns>Lista de interacciones del usuario.</returns>
     public List<Interaccion> VerHistorial(string nombreUsuario)
     {
         Usuario? usuario = ObtenerUsuario(nombreUsuario);
@@ -135,7 +188,11 @@ public class Fachada
         return usuario.Historial.ObtenerTodas();
     }
     
-    // Genera recomendaciones para un usuario específico.
+    /// <summary>
+    /// Genera recomendaciones para un usuario.
+    /// </summary>
+    /// <param name="nombreUsuario">Nombre del usuario.</param>
+    /// <returns>Lista de elementos recomendados.</returns>
     public List<IRecomendable> Recomendar(string nombreUsuario)
     {
         Usuario? usuario = ObtenerUsuario(nombreUsuario);
@@ -147,7 +204,7 @@ public class Fachada
 
         return recomendador.Recomendar(
             usuario,
-            catalogo.ObtenerCanciones().Cast<IRecomendable>().ToList()
+            catalogo.ObtenerItems()
         );
     }
 }
