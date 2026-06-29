@@ -70,7 +70,7 @@ Recomendador recomendador = new Recomendador();
 
 // Generamos las recomendaciones para el usuario.
 List<IRecomendable> recomendaciones =
-    recomendador.RecomendarPorPreferencias(usuario, canciones);
+    recomendador.Recomendar(usuario, canciones);
 
 // Mostramos el resultado por consola.
 Console.WriteLine($"Recomendaciones para {usuario.Nombre}:");
