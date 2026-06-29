@@ -18,4 +18,5 @@ public class Usuario
     public string Nombre { get; set; } = "";
     public List<string> Preferencias { get; set; } = new();
     public List<int> HistorialIds { get; set; } = new();
+    public Historial Historial { get; set; } = new();
 }
