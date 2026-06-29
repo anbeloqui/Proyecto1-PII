@@ -115,6 +115,19 @@ public class Fachada
     {
         return catalogo.ObtenerCanciones();
     }
+
+    // Devuelve el historial de interacciones de un usuario.
+    public List<Interaccion> VerHistorial(string nombreUsuario)
+    {
+        Usuario? usuario = ObtenerUsuario(nombreUsuario);
+
+        if (usuario == null)
+        {
+            return new List<Interaccion>();
+        }
+
+        return usuario.Historial.ObtenerTodas();
+    }
     
     // Genera recomendaciones para un usuario específico.
     public List<IRecomendable> Recomendar(string nombreUsuario)
