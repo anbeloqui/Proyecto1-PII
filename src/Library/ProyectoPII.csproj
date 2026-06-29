@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -12,6 +12,10 @@
   <Compile Remove="ProyectoPII.Tests\**\*.cs" />
   <EmbeddedResource Remove="ProyectoPII.Tests\**\*" />
   <None Remove="ProyectoPII.Tests\**\*" />
+</ItemGroup>
+
+<ItemGroup>
+  <PackageReference Include="Discord.Net" Version="3.20.1" />
 </ItemGroup>
 
 </Project>
