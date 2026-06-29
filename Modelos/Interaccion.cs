@@ -18,5 +18,6 @@ public class Interaccion
 {
     public int UsuarioId { get; set; }
     public int ItemId { get; set; }
-    public string Tipo { get; set; } = "";
+    public TipoInteraccion Tipo { get; set; }
+    public DateTime Fecha { get; set; } = DateTime.Now;
 }
