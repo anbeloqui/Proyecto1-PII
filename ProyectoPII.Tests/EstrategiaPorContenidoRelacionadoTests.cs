@@ -23,7 +23,7 @@ public class EstrategiaPorContenidoRelacionadoTests
             Tipo = TipoInteraccion.Consumido
         });
 
-        List<IRecomendable> catalogo = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -52,7 +52,7 @@ public class EstrategiaPorContenidoRelacionadoTests
             new Recomendador(new EstrategiaPorContenidoRelacionado());
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, catalogo);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Single(resultado);
         Assert.Equal(2, resultado[0].Id);
@@ -74,7 +74,7 @@ public class EstrategiaPorContenidoRelacionadoTests
             Tipo = TipoInteraccion.Consumido
         });
 
-        List<IRecomendable> catalogo = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -96,7 +96,7 @@ public class EstrategiaPorContenidoRelacionadoTests
             new Recomendador(new EstrategiaPorContenidoRelacionado());
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, catalogo);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Empty(resultado);
     }

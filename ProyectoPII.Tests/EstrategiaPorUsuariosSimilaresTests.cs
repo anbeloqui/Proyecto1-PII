@@ -8,7 +8,7 @@ namespace ProyectoPII.Tests;
 public class EstrategiaPorUsuariosSimilaresTests
 {
     [Fact]
-    public void RecomiendaContenidoConsumidoPorUsuariosSimilares()
+    public void RecomiendaItemsConsumidosPorUsuariosSimilares()
     {
         Usuario usuario1 = new Usuario
         {
@@ -37,7 +37,7 @@ public class EstrategiaPorUsuariosSimilaresTests
             usuario2
         };
 
-        List<IRecomendable> canciones = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -60,7 +60,7 @@ public class EstrategiaPorUsuariosSimilaresTests
                 new EstrategiaPorUsuariosSimilares(usuarios));
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario1, canciones);
+            recomendador.Recomendar(usuario1, items);
 
         Assert.Single(resultado);
         Assert.Equal(2, resultado[0].Id);
@@ -96,7 +96,7 @@ public class EstrategiaPorUsuariosSimilaresTests
             usuario2
         };
 
-        List<IRecomendable> canciones = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -112,7 +112,7 @@ public class EstrategiaPorUsuariosSimilaresTests
                 new EstrategiaPorUsuariosSimilares(usuarios));
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario1, canciones);
+            recomendador.Recomendar(usuario1, items);
 
         Assert.Empty(resultado);
     }

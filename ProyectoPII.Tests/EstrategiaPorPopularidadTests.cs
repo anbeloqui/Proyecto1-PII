@@ -21,7 +21,7 @@ public class EstrategiaPorPopularidadTests
 
         List<Usuario> usuarios = new() { usuarioActual, usuario2, usuario3 };
 
-        List<IRecomendable> catalogo = new()
+        List<IRecomendable> items = new()
         {
             new Cancion { Id = 2, Nombre = "Más popular", Artista = "A", Atributos = new() { "rock" } },
             new Cancion { Id = 3, Nombre = "Menos popular", Artista = "B", Atributos = new() { "pop" } }
@@ -31,7 +31,7 @@ public class EstrategiaPorPopularidadTests
             new Recomendador(new EstrategiaPorPopularidad(usuarios));
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuarioActual, catalogo);
+            recomendador.Recomendar(usuarioActual, items);
 
         Assert.Equal(2, resultado.Count);
         Assert.Equal(2, resultado[0].Id);
@@ -49,7 +49,7 @@ public class EstrategiaPorPopularidadTests
 
         List<Usuario> usuarios = new() { usuarioActual, usuario2 };
 
-        List<IRecomendable> catalogo = new()
+        List<IRecomendable> items = new()
         {
             new Cancion { Id = 2, Nombre = "Popular consumida", Artista = "A", Atributos = new() { "rock" } }
         };
@@ -58,7 +58,7 @@ public class EstrategiaPorPopularidadTests
             new Recomendador(new EstrategiaPorPopularidad(usuarios));
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuarioActual, catalogo);
+            recomendador.Recomendar(usuarioActual, items);
 
         Assert.Empty(resultado);
     }
