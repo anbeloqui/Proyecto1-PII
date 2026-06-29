@@ -49,7 +49,7 @@ public class RecomendadorTests
         Recomendador recomendador = new Recomendador();
 
         List<IRecomendable> resultado =
-            recomendador.RecomendarPorPreferencias(usuario, canciones);
+            recomendador.Recomendar(usuario, canciones);
 
         Assert.Single(resultado);
         Assert.Equal("Rock nuevo", resultado[0].Nombre);
@@ -81,7 +81,7 @@ public class RecomendadorTests
         Recomendador recomendador = new Recomendador();
 
         List<IRecomendable> resultado =
-            recomendador.RecomendarPorPreferencias(usuario, canciones);
+            recomendador.Recomendar(usuario, canciones);
 
         Assert.Empty(resultado);
     }
@@ -113,7 +113,7 @@ public class RecomendadorTests
         Recomendador recomendador = new Recomendador();
 
         List<IRecomendable> resultado =
-            recomendador.RecomendarPorPreferencias(usuario, canciones);
+            recomendador.Recomendar(usuario, canciones);
 
         Assert.Empty(resultado);
     }
