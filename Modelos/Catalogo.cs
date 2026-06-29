@@ -1,30 +1,40 @@
+using ProyectoPII.Interfaces;
+
 namespace ProyectoPII.Modelos;
 
-// ---------------------------------------------------------
-// CLASE CATALOGO
-// ---------------------------------------------------------
-// Representa el conjunto de canciones disponibles
-// dentro del sistema.
-//
-// La fachada usa esta clase para agregar canciones
-// y obtener la lista completa cuando se quieren generar
-// recomendaciones.
-// ---------------------------------------------------------
-
-
+/// <summary>
+/// Representa el catálogo de elementos recomendables del sistema.
+/// </summary>
 public class Catalogo
 {
-    public List<Cancion> Canciones { get; set; } = new();
+    private List<IRecomendable> items = new();
 
-// Agrega una nueva canción al catálogo.
-    public void AgregarCancion(Cancion cancion)
+    /// <summary>
+    /// Agrega un elemento recomendable al catálogo.
+    /// </summary>
+    public void AgregarItem(IRecomendable item)
     {
-        Canciones.Add(cancion);
+        items.Add(item);
     }
 
-// Devuelve todas las canciones disponibles.
-    public List<Cancion> ObtenerCanciones()
+    /// <summary>
+    /// Elimina un elemento del catálogo por su identificador.
+    /// </summary>
+    public void EliminarItem(int id)
     {
-        return Canciones;
+        IRecomendable? item = items.FirstOrDefault(i => i.Id == id);
+
+        if (item != null)
+        {
+            items.Remove(item);
+        }
+    }
+
+    /// <summary>
+    /// Devuelve todos los elementos recomendables del catálogo.
+    /// </summary>
+    public List<IRecomendable> ObtenerItems()
+    {
+        return items;
     }
 }
