@@ -8,7 +8,7 @@ namespace ProyectoPII.Tests;
 public class EstrategiaPorHistorialTests
 {
     [Fact]
-    public void RecomiendaCancionesSimilaresSegunHistorial()
+    public void RecomiendaItemsSimilaresSegunHistorial()
     {
         Usuario usuario = new Usuario { Id = 1, Nombre = "Ana" };
 
@@ -19,7 +19,7 @@ public class EstrategiaPorHistorialTests
             Tipo = TipoInteraccion.Like
         });
 
-        List<IRecomendable> canciones = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -48,14 +48,14 @@ public class EstrategiaPorHistorialTests
             new Recomendador(new EstrategiaPorHistorial());
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, canciones);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Single(resultado);
         Assert.Equal("Rock recomendado", resultado[0].Nombre);
     }
 
     [Fact]
-    public void NoRecomiendaCancionesYaConsumidasSegunHistorial()
+    public void NoRecomiendaItemsYaConsumidosSegunHistorial()
     {
         Usuario usuario = new Usuario { Id = 1, Nombre = "Ana" };
 
@@ -73,7 +73,7 @@ public class EstrategiaPorHistorialTests
             Tipo = TipoInteraccion.Consumido
         });
 
-        List<IRecomendable> canciones = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -95,7 +95,7 @@ public class EstrategiaPorHistorialTests
             new Recomendador(new EstrategiaPorHistorial());
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, canciones);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Empty(resultado);
     }

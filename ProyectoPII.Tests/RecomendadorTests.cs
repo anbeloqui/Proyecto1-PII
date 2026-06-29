@@ -15,7 +15,7 @@ namespace ProyectoPII.Tests;
 public class RecomendadorTests
 {
     [Fact]
-    public void RecomiendaCancionesSegunPreferencias()
+    public void RecomiendaItemsSegunPreferencias()
     {
         // Creamos un usuario que prefiere rock.
         Usuario usuario = new Usuario
@@ -26,8 +26,8 @@ public class RecomendadorTests
             HistorialIds = new List<int>()
         };
 
-        // Creamos canciones de prueba.
-        List<IRecomendable> canciones = new()
+        // Creamos items de prueba.
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -49,14 +49,14 @@ public class RecomendadorTests
         Recomendador recomendador = new Recomendador();
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, canciones);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Single(resultado);
         Assert.Equal("Rock nuevo", resultado[0].Nombre);
     }
 
     [Fact]
-    public void NoRecomiendaCancionesYaEscuchadas()
+    public void NoRecomiendaItemsYaConsumidos()
     {
         // Usuario que ya escuchó la canción con ID 1.
         Usuario usuario = new Usuario
@@ -67,7 +67,7 @@ public class RecomendadorTests
             HistorialIds = new List<int> { 1 }
         };
 
-        List<IRecomendable> canciones = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -81,7 +81,7 @@ public class RecomendadorTests
         Recomendador recomendador = new Recomendador();
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, canciones);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Empty(resultado);
     }
@@ -99,7 +99,7 @@ public class RecomendadorTests
         };
 
         // Solo existe una canción clásica.
-        List<IRecomendable> canciones = new()
+        List<IRecomendable> items = new()
         {
             new Cancion
             {
@@ -113,7 +113,7 @@ public class RecomendadorTests
         Recomendador recomendador = new Recomendador();
 
         List<IRecomendable> resultado =
-            recomendador.Recomendar(usuario, canciones);
+            recomendador.Recomendar(usuario, items);
 
         Assert.Empty(resultado);
     }

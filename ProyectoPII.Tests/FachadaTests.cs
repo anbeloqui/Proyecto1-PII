@@ -11,7 +11,7 @@ public class FachadaTests
     public void RegistrarUsuarioGuardaCorrectamenteElUsuario()
     {
         
-        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+        Fachada.Fachada fachada = new();
 
         fachada.RegistrarUsuario(1, "Ana");
 
