@@ -8,7 +8,6 @@ namespace ProyectoPII.Fachada;
 /// Punto de entrada principal del sistema.
 /// Coordina usuarios, catálogo y recomendador.
 /// </summary>
-
 public class Fachada
 {
     private List<Usuario> usuarios;
@@ -204,7 +203,7 @@ public class Fachada
 
         return recomendador.Recomendar(
             usuario,
-            catalogo.ObtenerItems()
+            ObtenerItems()
         );
     }
 }
