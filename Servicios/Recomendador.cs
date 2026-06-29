@@ -1,50 +1,39 @@
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
+using ProyectoPII.Estrategias;
 
 namespace ProyectoPII.Servicios;
 
 // ---------------------------------------------------------
 // CLASE RECOMENDADOR
 // ---------------------------------------------------------
-// Contiene la lógica principal de recomendación.
+// Contiene el motor principal de recomendación.
 //
-// El recomendador compara las preferencias del usuario
-// con los atributos de cada canción.
+// En lugar de tener una única lógica fija, utiliza una
+// estrategia de recomendación intercambiable.
 //
-// Además, revisa el historial del usuario para evitar
-// recomendar canciones que ya fueron consumidas.
+// Esto permite cambiar la forma de recomendar sin modificar
+// el recomendador.
 // ---------------------------------------------------------
-
 
 public class Recomendador
 {
-    public List<IRecomendable> RecomendarPorPreferencias(
+    private IEstrategiaRecomendacion estrategia;
+
+    public Recomendador()
+    {
+        estrategia = new EstrategiaPorPreferencias();
+    }
+
+    public Recomendador(IEstrategiaRecomendacion estrategia)
+    {
+        this.estrategia = estrategia;
+    }
+
+    public List<IRecomendable> Recomendar(
         Usuario usuario,
         List<IRecomendable> catalogo)
     {
-        List<IRecomendable> resultado = new();
-
-        foreach (IRecomendable item in catalogo)
-        {
-            // Si el usuario ya consumió este contenido,
-            // se saltea y no se recomienda.
-            if (usuario.HistorialIds.Contains(item.Id))
-            {
-                continue;
-            }
-            
-            // Se comparan las preferencias del usuario
-            // con los atributos del contenido.
-            foreach (string preferencia in usuario.Preferencias)
-            {
-                if (item.Atributos.Contains(preferencia))
-                {
-                    resultado.Add(item);
-                    break;
-                }
-            }
-        }
-
-        return resultado;
+        return estrategia.Recomendar(usuario, catalogo);
     }
 }

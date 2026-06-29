@@ -114,7 +114,7 @@ public class Fachada
             return new List<IRecomendable>();
         }
 
-        return recomendador.RecomendarPorPreferencias(
+        return recomendador.Recomendar(
             usuario,
             catalogo.ObtenerCanciones().Cast<IRecomendable>().ToList()
         );
