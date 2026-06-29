@@ -68,6 +68,36 @@ public class Fachada
         usuario.Preferencias.Add(preferencia);
     }
 
+    // Registra una interacción realizada por un usuario.
+    public void AgregarInteraccion(
+        string nombreUsuario,
+        int itemId,
+        TipoInteraccion tipo)
+    {
+        Usuario? usuario = ObtenerUsuario(nombreUsuario);
+
+        if (usuario == null)
+        {
+            return;
+        }
+
+        Interaccion interaccion = new Interaccion
+        {
+            UsuarioId = usuario.Id,
+            ItemId = itemId,
+            Tipo = tipo,
+            Fecha = DateTime.Now
+        };
+
+        usuario.Historial.Agregar(interaccion);
+
+        // Compatibilidad con el recomendador actual.
+        if (tipo == TipoInteraccion.Consumido)
+        {
+            usuario.HistorialIds.Add(itemId);
+        }
+    }
+
      // Devuelve todas las canciones cargadas en el catálogo.
     public List<Cancion> ObtenerCanciones()
     {
