@@ -1,8 +1,8 @@
 # Proyecto PII
 
-Sistema de recomendaciones desarrollado en C# como proyecto del curso **Programación II (PII)**.
+Sistema de recomendaciones desarrollado en C# para el curso Programación II.
 
-El sistema permite registrar usuarios, administrar un catálogo de elementos recomendables y generar recomendaciones personalizadas utilizando distintas estrategias y patrones de diseño orientado a objetos.
+El proyecto implementa un motor de recomendaciones desacoplado basado en estrategias, filtros y ordenadores, permitiendo recomendar distintos tipos de contenido mediante una arquitectura orientada a objetos.
 
 ---
 
@@ -21,8 +21,7 @@ El sistema permite:
 - Administrar un catálogo de elementos recomendables.
 - Registrar preferencias de los usuarios.
 - Registrar historial de interacciones.
-- Generar recomendaciones personalizadas.
-- Aplicar diferentes estrategias de recomendación.
+- Generar recomendaciones utilizando distintas estrategias, como preferencias, historial, usuarios similares y contenido relacionado.
 
 El proyecto fue desarrollado aplicando principios **SOLID**, buenas prácticas de programación orientada a objetos y patrones de diseño.
 
@@ -41,6 +40,9 @@ El proyecto fue desarrollado aplicando principios **SOLID**, buenas prácticas d
 
 - **Composite (FilterChain)**
   - Permite aplicar múltiples filtros sobre las recomendaciones antes de devolver el resultado final.
+
+- **Ordenadores**
+  - Se implementaron componentes independientes para ordenar las recomendaciones según distintos criterios, manteniendo desacoplado el motor de recomendaciones.    
 
 ---
 
@@ -154,26 +156,18 @@ El proyecto fue desarrollado utilizando Git y GitHub, trabajando con ramas de de
 # Estado del proyecto
 
 ✔ Registro de usuarios.
-
 ✔ Gestión del catálogo.
-
 ✔ Historial de interacciones.
-
 ✔ Motor de recomendaciones.
-
 ✔ Estrategias de recomendación.
-
 ✔ Filtros de recomendaciones.
-
-✔ Pruebas unitarias.
-
+✔ Pruebas unitarias y de historias de usuario.
 ✔ Documentación XML.
-
 ✔ Diagrama UML.
 
 ---
 
-# Autores
+## Autores
 
 - Alejandro Erburo
 - Andrés Beloqui
