@@ -4,7 +4,7 @@ var hierarchy =
     [ "ProyectoPII.Bot.DiscordBot", "class_proyecto_p_i_i_1_1_bot_1_1_discord_bot.html", null ],
     [ "ProyectoPII.Fachada.Fachada", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html", null ],
     [ "ProyectoPII.Modelos.Historial", "class_proyecto_p_i_i_1_1_modelos_1_1_historial.html", null ],
-    [ "ProyectoPII.Estrategias.IEstrategiaRecomendacion", "interface_proyecto_p_i_i_1_1_estrategias_1_1_i_estrategia_recomendacion.html", [
+    [ "ProyectoPII.Interfaces.IEstrategiaRecomendacion", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html", [
       [ "ProyectoPII.Estrategias.EstrategiaPorContenidoRelacionado", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html", null ],
       [ "ProyectoPII.Estrategias.EstrategiaPorHistorial", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_historial.html", null ],
       [ "ProyectoPII.Estrategias.EstrategiaPorPopularidad", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_popularidad.html", null ],

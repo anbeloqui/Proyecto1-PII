@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Proyecto PII: ProyectoPII.Estrategias.EstrategiaPorPreferencias Class Reference</title>
+<title>Proyecto PII: ProyectoPII.Interfaces.IEstrategiaRecomendacion Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.html','','class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias-members'); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html','','interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -115,38 +115,42 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_proyecto
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ProyectoPII.Estrategias.EstrategiaPorPreferencias Class Reference</div></div>
+  <div class="headertitle"><div class="title">ProyectoPII.Interfaces.IEstrategiaRecomendacion Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Recomienda elementos según las preferencias registradas por el usuario.  
+<p>Define el comportamiento común de las estrategias de recomendación.  
  <a href="#details">More...</a></p>
 <div class="dynheader">
-Inheritance diagram for ProyectoPII.Estrategias.EstrategiaPorPreferencias:</div>
+Inheritance diagram for ProyectoPII.Interfaces.IEstrategiaRecomendacion:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.png" usemap="#ProyectoPII_2EEstrategias_2EEstrategiaPorPreferencias_map" alt=""/>
-  <map id="ProyectoPII_2EEstrategias_2EEstrategiaPorPreferencias_map" name="ProyectoPII_2EEstrategias_2EEstrategiaPorPreferencias_map">
-<area href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html" title="Define el comportamiento común de las estrategias de recomendación." alt="ProyectoPII.Interfaces.IEstrategiaRecomendacion" shape="rect" coords="0,0,296,24"/>
+  <img src="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.png" usemap="#ProyectoPII_2EInterfaces_2EIEstrategiaRecomendacion_map" alt=""/>
+  <map id="ProyectoPII_2EInterfaces_2EIEstrategiaRecomendacion_map" name="ProyectoPII_2EInterfaces_2EIEstrategiaRecomendacion_map">
+<area href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html" title="Recomienda elementos relacionados a partir de los atributos de contenidos que el usuario ya consumió." alt="ProyectoPII.Estrategias.EstrategiaPorContenidoRelacionado" shape="rect" coords="0,56,350,80"/>
+<area href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_historial.html" title="Recomienda elementos a partir del historial de interacciones del usuario." alt="ProyectoPII.Estrategias.EstrategiaPorHistorial" shape="rect" coords="360,56,710,80"/>
+<area href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_popularidad.html" title="Recomienda los elementos más populares según las interacciones positivas registradas por los usuarios..." alt="ProyectoPII.Estrategias.EstrategiaPorPopularidad" shape="rect" coords="720,56,1070,80"/>
+<area href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.html" title="Recomienda elementos según las preferencias registradas por el usuario." alt="ProyectoPII.Estrategias.EstrategiaPorPreferencias" shape="rect" coords="1080,56,1430,80"/>
+<area href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares.html" title="Recomienda elementos consumidos o marcados positivamente por usuarios con preferencias similares al u..." alt="ProyectoPII.Estrategias.EstrategiaPorUsuariosSimilares" shape="rect" coords="1440,56,1790,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a46cf7b036377daf5fa7feaad4207fd23" id="r_a46cf7b036377daf5fa7feaad4207fd23"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a46cf7b036377daf5fa7feaad4207fd23">Recomendar</a> (<a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a> usuario, List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt; catalogo)</td></tr>
-<tr class="memdesc:a46cf7b036377daf5fa7feaad4207fd23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones para un usuario a partir de una lista de elementos.  <br /></td></tr>
+<tr class="memitem:abd647a5eac190ef3767cbd592165f964" id="r_abd647a5eac190ef3767cbd592165f964"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abd647a5eac190ef3767cbd592165f964">Recomendar</a> (<a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a> usuario, List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt; catalogo)</td></tr>
+<tr class="memdesc:abd647a5eac190ef3767cbd592165f964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones para un usuario a partir de una lista de elementos.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Recomienda elementos según las preferencias registradas por el usuario. </p>
+<div class="textblock"><p>Define el comportamiento común de las estrategias de recomendación. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a46cf7b036377daf5fa7feaad4207fd23" name="a46cf7b036377daf5fa7feaad4207fd23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46cf7b036377daf5fa7feaad4207fd23">&#9670;&#160;</a></span>Recomendar()</h2>
+<a id="abd647a5eac190ef3767cbd592165f964" name="abd647a5eac190ef3767cbd592165f964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd647a5eac190ef3767cbd592165f964">&#9670;&#160;</a></span>Recomendar()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt; ProyectoPII.Estrategias.EstrategiaPorPreferencias.Recomendar </td>
+          <td class="memname">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt; ProyectoPII.Interfaces.IEstrategiaRecomendacion.Recomendar </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a></td>          <td class="paramname"><span class="paramname"><em>usuario</em></span>, </td>
         </tr>
@@ -168,12 +172,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendados.</dd></dl>
 
-<p>Implements <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html#abd647a5eac190ef3767cbd592165f964">ProyectoPII.Interfaces.IEstrategiaRecomendacion</a>.</p>
+<p>Implemented in <a class="el" href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html#a2715ac7947610c3f8d131edb99a9f909">ProyectoPII.Estrategias.EstrategiaPorContenidoRelacionado</a>, <a class="el" href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_historial.html#a4b51bbb55ea69966bb85dc8d3b40f1bd">ProyectoPII.Estrategias.EstrategiaPorHistorial</a>, <a class="el" href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_popularidad.html#a3d57b4f6a1c9dbe56d4d99fa45ff8d4c">ProyectoPII.Estrategias.EstrategiaPorPopularidad</a>, <a class="el" href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.html#a46cf7b036377daf5fa7feaad4207fd23">ProyectoPII.Estrategias.EstrategiaPorPreferencias</a>, and <a class="el" href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares.html#a8092859114b643f92987750dd1f4d6ea">ProyectoPII.Estrategias.EstrategiaPorUsuariosSimilares</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/Library/Estrategias/<a class="el" href="_estrategia_por_preferencias_8cs.html">EstrategiaPorPreferencias.cs</a></li>
+<hr/>The documentation for this interface was generated from the following file:<ul>
+<li>src/Library/Interfaces/<a class="el" href="_i_estrategia_recomendacion_8cs.html">IEstrategiaRecomendacion.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -188,7 +192,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="namespace_proyecto_p_i_i.html">ProyectoPII</a></li><li class="navelem"><a href="namespace_proyecto_p_i_i_1_1_estrategias.html">Estrategias</a></li><li class="navelem"><a href="class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.html">EstrategiaPorPreferencias</a></li>
+    <li class="navelem"><a href="namespace_proyecto_p_i_i.html">ProyectoPII</a></li><li class="navelem"><a href="namespace_proyecto_p_i_i_1_1_interfaces.html">Interfaces</a></li><li class="navelem"><a href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html">IEstrategiaRecomendacion</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
   </ul>
 </div>
