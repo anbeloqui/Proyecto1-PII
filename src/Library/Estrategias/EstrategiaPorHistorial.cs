@@ -12,6 +12,9 @@ namespace ProyectoPII.Estrategias;
 // Evita recomendar elementos ya consumidos.
 // ---------------------------------------------------------
 
+/// <summary>
+/// Recomienda elementos a partir del historial de interacciones del usuario.
+/// </summary>
 public class EstrategiaPorHistorial : IEstrategiaRecomendacion
 {
     public List<IRecomendable> Recomendar(

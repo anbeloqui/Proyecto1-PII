@@ -4,6 +4,7 @@ namespace ProyectoPII.Modelos;
 
 /// <summary>
 /// Representa el catálogo de elementos recomendables del sistema.
+/// Permite agregar, eliminar y consultar los elementos disponibles.
 /// </summary>
 public class Catalogo
 {
@@ -12,14 +13,16 @@ public class Catalogo
     /// <summary>
     /// Agrega un elemento recomendable al catálogo.
     /// </summary>
+    /// <param name="item">Elemento recomendable que se agregará al catálogo.</param>
     public void AgregarItem(IRecomendable item)
     {
         items.Add(item);
     }
 
     /// <summary>
-    /// Elimina un elemento del catálogo por su identificador.
+    /// Elimina un elemento del catálogo según su identificador.
     /// </summary>
+    /// <param name="id">Identificador del elemento que se desea eliminar.</param>
     public void EliminarItem(int id)
     {
         IRecomendable? item = items.FirstOrDefault(i => i.Id == id);
@@ -31,8 +34,9 @@ public class Catalogo
     }
 
     /// <summary>
-    /// Devuelve todos los elementos recomendables del catálogo.
+    /// Obtiene todos los elementos recomendables registrados en el catálogo.
     /// </summary>
+    /// <returns>Lista de elementos recomendables disponibles.</returns>
     public List<IRecomendable> ObtenerItems()
     {
         return items;

@@ -1,1 +1,179 @@
-[https://trello.com/invite/b/6a0cfe2f76543fbed9c04808/ATTId7f71e3313ed60e47b47b01b97fb29706A1BBD28/mi-tablero-de-trello](https://trello.com/invite/b/6a0cfe2f76543fbed9c04808/ATTId7f71e3313ed60e47b47b01b97fb29706A1BBD28/mi-tablero-de-trello)
+# Proyecto PII
+
+Sistema de recomendaciones desarrollado en C# como proyecto del curso **Programación II (PII)**.
+
+El sistema permite registrar usuarios, administrar un catálogo de elementos recomendables y generar recomendaciones personalizadas utilizando distintas estrategias y patrones de diseño orientado a objetos.
+
+---
+
+# Integrantes
+
+- Alejandro Erburo
+- Andrés Beloqui
+
+---
+
+# Descripción
+
+El sistema permite:
+
+- Registrar usuarios.
+- Administrar un catálogo de elementos recomendables.
+- Registrar preferencias de los usuarios.
+- Registrar historial de interacciones.
+- Generar recomendaciones personalizadas.
+- Aplicar diferentes estrategias de recomendación.
+
+El proyecto fue desarrollado aplicando principios **SOLID**, buenas prácticas de programación orientada a objetos y patrones de diseño.
+
+---
+
+# Patrones de diseño utilizados
+
+- **Facade**
+  - Proporciona un único punto de acceso al sistema mediante la clase `Fachada`.
+
+- **Strategy**
+  - Permite cambiar el algoritmo de recomendación sin modificar el resto del sistema.
+
+- **Factory**
+  - Encapsula la creación de las distintas estrategias de recomendación.
+
+- **Composite (FilterChain)**
+  - Permite aplicar múltiples filtros sobre las recomendaciones antes de devolver el resultado final.
+
+---
+
+# Tecnologías utilizadas
+
+- C#
+- .NET 10
+- xUnit
+- Doxygen
+- Mermaid (UML)
+- Git
+- GitHub
+
+---
+
+# Estructura del proyecto
+
+```text
+Proyecto1-PII/
+│
+├── src/
+│   └── Library/
+│       ├── Bot/
+│       ├── Estrategias/
+│       ├── Fachada/
+│       ├── Filtros/
+│       ├── Interfaces/
+│       ├── Modelos/
+│       ├── Ordenadores/
+│       ├── Servicios/
+│       └── ProyectoPII.csproj
+│
+├── test/
+│   └── ProyectoPII.Tests/
+│
+├── docs/
+│   ├── uml.md
+│   ├── uml.png
+│   └── (documentación generada por Doxygen)
+│
+├── ProyectoPII.slnx
+└── README.md
+```
+
+---
+
+# Requisitos
+
+- .NET 10 SDK
+- Git
+
+---
+
+# Restaurar dependencias
+
+```bash
+dotnet restore ProyectoPII.slnx
+```
+
+---
+
+# Compilar el proyecto
+
+```bash
+dotnet build ProyectoPII.slnx
+```
+
+---
+
+# Ejecutar las pruebas
+
+```bash
+dotnet test ProyectoPII.slnx
+```
+
+---
+
+# Documentación
+
+La documentación generada con Doxygen se encuentra en:
+
+- `docs/html/index.html`
+
+El diagrama UML se encuentra en:
+
+- `docs/uml.md`
+- `docs/uml.png`
+
+```text
+docs/
+├── uml.md
+└── uml.png
+```
+
+---
+
+# Gestión del proyecto
+
+El desarrollo fue organizado mediante un tablero de Trello:
+
+[Trello del proyecto](https://trello.com/b/OyemCGIp/mi-tablero-de-trello)
+
+---
+
+# Control de versiones
+
+El proyecto fue desarrollado utilizando Git y GitHub, trabajando con ramas de desarrollo y Pull Requests para integrar las distintas funcionalidades.
+
+---
+
+# Estado del proyecto
+
+✔ Registro de usuarios.
+
+✔ Gestión del catálogo.
+
+✔ Historial de interacciones.
+
+✔ Motor de recomendaciones.
+
+✔ Estrategias de recomendación.
+
+✔ Filtros de recomendaciones.
+
+✔ Pruebas unitarias.
+
+✔ Documentación XML.
+
+✔ Diagrama UML.
+
+---
+
+# Autores
+
+- Alejandro Erburo
+- Andrés Beloqui

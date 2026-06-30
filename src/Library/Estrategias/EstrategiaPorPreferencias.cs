@@ -14,6 +14,9 @@ namespace ProyectoPII.Estrategias;
 // evitando recomendar contenidos ya consumidos.
 // ---------------------------------------------------------
 
+/// <summary>
+/// Recomienda elementos según las preferencias registradas por el usuario.
+/// </summary>
 public class EstrategiaPorPreferencias : IEstrategiaRecomendacion
 {
     public List<IRecomendable> Recomendar(

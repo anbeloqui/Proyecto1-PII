@@ -16,6 +16,11 @@ public class Fachada
     private Catalogo catalogo;
     private RecommendationEngine recommendationEngine;
 
+
+    /// <summary>
+    /// Inicializa una nueva instancia de la fachada, creando la lista de usuarios,
+    /// el catálogo y el motor de recomendaciones por preferencias.
+    /// </summary>
     public Fachada()
     {
         usuarios = new List<Usuario>();
