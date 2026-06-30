@@ -9,8 +9,7 @@ var annotated_dup =
         [ "EstrategiaPorHistorial", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_historial.html", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_historial" ],
         [ "EstrategiaPorPopularidad", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_popularidad.html", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_popularidad" ],
         [ "EstrategiaPorPreferencias", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.html", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias" ],
-        [ "EstrategiaPorUsuariosSimilares", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares.html", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares" ],
-        [ "IEstrategiaRecomendacion", "interface_proyecto_p_i_i_1_1_estrategias_1_1_i_estrategia_recomendacion.html", "interface_proyecto_p_i_i_1_1_estrategias_1_1_i_estrategia_recomendacion" ]
+        [ "EstrategiaPorUsuariosSimilares", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares.html", "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares" ]
       ] ],
       [ "Fachada", "namespace_proyecto_p_i_i_1_1_fachada.html", [
         [ "Fachada", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada" ]
@@ -21,6 +20,7 @@ var annotated_dup =
         [ "FiltroPorAtributo", "class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html", "class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo" ]
       ] ],
       [ "Interfaces", "namespace_proyecto_p_i_i_1_1_interfaces.html", [
+        [ "IEstrategiaRecomendacion", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion" ],
         [ "IFiltroRecomendacion", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_filtro_recomendacion.html", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_filtro_recomendacion" ],
         [ "IOrdenadorRecomendacion", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_ordenador_recomendacion.html", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_ordenador_recomendacion" ],
         [ "IRanker", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_ranker.html", "interface_proyecto_p_i_i_1_1_interfaces_1_1_i_ranker" ],

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['id_0',['Id',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html#a054e0c519e971bedf74b4ea368c0aec4',1,'ProyectoPII.Interfaces.IRecomendable.Id'],['../class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ac9ae8ad9f4302412f137a620035427a4',1,'ProyectoPII.Modelos.Cancion.Id'],['../class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html#a6d3a57a79d98af54b6f567d27d4afe03',1,'ProyectoPII.Modelos.Usuario.Id']]],
-  ['iestrategiarecomendacion_1',['IEstrategiaRecomendacion',['../interface_proyecto_p_i_i_1_1_estrategias_1_1_i_estrategia_recomendacion.html',1,'ProyectoPII::Estrategias']]],
+  ['iestrategiarecomendacion_1',['IEstrategiaRecomendacion',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html',1,'ProyectoPII::Interfaces']]],
   ['iestrategiarecomendacion_2ecs_2',['IEstrategiaRecomendacion.cs',['../_i_estrategia_recomendacion_8cs.html',1,'']]],
   ['ifiltrorecomendacion_3',['IFiltroRecomendacion',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_filtro_recomendacion.html',1,'ProyectoPII::Interfaces']]],
   ['ifiltrorecomendacion_2ecs_4',['IFiltroRecomendacion.cs',['../_i_filtro_recomendacion_8cs.html',1,'']]],
