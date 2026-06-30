@@ -1,7 +1,7 @@
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
 
-namespace ProyectoPII.Estrategias;
+namespace ProyectoPII.Interfaces;
 
 /// <summary>
 /// Define el comportamiento común de las estrategias de recomendación.
