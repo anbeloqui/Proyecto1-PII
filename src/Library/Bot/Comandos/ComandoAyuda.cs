@@ -26,19 +26,30 @@ public class ComandoAyuda : IComandoDiscord
         string ayuda = """
         👋 **Bienvenido al Sistema de Recomendaciones**
 
-        Este bot te permite recibir recomendaciones de canciones y películas según tus preferencias.
+        Este bot permite recibir recomendaciones de canciones y películas según tus preferencias.
 
-        **Comandos disponibles:**
+        ⚠️ **Importante**
+        Las preferencias deben escribirse exactamente como aparecen en esta ayuda.
+        Si una palabra está mal escrita, el sistema puede no encontrar recomendaciones.
+
+        **Comandos disponibles**
 
         `!registrar`
         Registra tu usuario de Discord en el sistema.
 
         `!preferencia <preferencia>`
         Agrega una preferencia a tu perfil.
-        Ejemplo: `!preferencia rock`
 
-        `!recomendar`
-        Muestra recomendaciones según tus preferencias.
+        Ejemplos:
+        `!preferencia rock`
+        `!preferencia accion`
+        `!preferencia ciencia ficcion`
+
+        `!recomendar canciones`
+        Muestra recomendaciones de canciones según tus preferencias.
+
+        `!recomendar peliculas`
+        Muestra recomendaciones de películas según tus preferencias.
 
         `!historial`
         Muestra tu historial de interacciones.
@@ -55,15 +66,99 @@ public class ComandoAyuda : IComandoDiscord
         Guarda una recomendación para ver o escuchar después.
         Ejemplo: `!guardar 1001`
 
-        **Preferencias que podés probar:**
+        **Ejemplo rápido para canciones**
 
-        `rock`, `pop`, `latino`, `reggaeton`, `electronica`, `romantica`, `accion`, `ciencia ficcion`, `terror`, `comedia`, `drama`, `superheroes`, `fantasia`, `aventura`
+        `!registrar`
+        `!preferencia rock`
+        `!recomendar canciones`
 
-        **Ejemplo rápido:**
+        **Ejemplo rápido para películas**
 
         `!registrar`
         `!preferencia accion`
-        `!recomendar`
+        `!recomendar peliculas`
+
+        **Preferencias disponibles para canciones**
+
+        `rock`
+        `pop`
+        `latino`
+        `reggaeton`
+        `electronica`
+        `romantica`
+        `clasico`
+        `baile`
+        `fiesta`
+        `motivacional`
+        `guitarra`
+        `vocal`
+        `piano`
+        `soul`
+        `funk`
+        `disco`
+        `rnb`
+        `rap`
+        `hiphop`
+        `metal`
+        `grunge`
+        `folk`
+        `alternativo`
+        `emocional`
+        `triste`
+        `tranquila`
+        `punk`
+        `alegre`
+        `country`
+        `salsa`
+        `bachata`
+        `ska`
+        `kpop`
+        `moderno`
+        `progresivo`
+
+        **Preferencias disponibles para películas**
+
+        `accion`
+        `aventura`
+        `ciencia ficcion`
+        `drama`
+        `comedia`
+        `fantasia`
+        `epica`
+        `crimen`
+        `terror`
+        `suspenso`
+        `misterio`
+        `historia`
+        `guerra`
+        `romantica`
+        `animacion`
+        `familia`
+        `musical`
+        `superheroes`
+        `western`
+        `biografica`
+        `tecnologia`
+        `venganza`
+        `cine`
+        `espionaje`
+        `autos`
+        `deporte`
+        `emocional`
+        `dialogo`
+        `navidad`
+        `juventud`
+        `amistad`
+        `supervivencia`
+        `sobrenatural`
+        `clasico`
+
+        **Recordatorio**
+        Para canciones usá:
+        `!recomendar canciones`
+
+        Para películas usá:
+        `!recomendar peliculas`
         """;
 
         await message.Channel.SendMessageAsync(ayuda);
