@@ -1,22 +1,20 @@
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
 using ProyectoPII.Servicios;
-using ProyectoPII.Estrategias;
-
 
 namespace ProyectoPII.Fachada;
 
 /// <summary>
-/// Punto de entrada principal del sistema.
-/// Coordina usuarios, catálogo y recomendador.
+/// Inicializa una nueva instancia de la fachada.
+/// 
+/// Aplica el patrón Facade, centralizando el acceso al sistema
+/// y ocultando la complejidad interna de usuarios, catálogo y recomendaciones.
 /// </summary>
 public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
-    private RecommendationEngine recommendationEngine;
-
-
+    
     /// <summary>
     /// Inicializa una nueva instancia de la fachada, creando la lista de usuarios,
     /// el catálogo y el motor de recomendaciones por preferencias.
@@ -25,10 +23,6 @@ public class Fachada
     {
         usuarios = new List<Usuario>();
         catalogo = new Catalogo();
-        recommendationEngine = new RecommendationEngine(
-            new EstrategiaPorPreferencias()
-        );
-
     }
 
     /// <summary>
