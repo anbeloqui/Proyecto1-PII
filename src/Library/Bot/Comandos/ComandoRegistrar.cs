@@ -5,14 +5,13 @@ using FachadaProyecto = ProyectoPII.Fachada.Fachada;
 namespace ProyectoPII.Bot.Comandos;
 
 /// <summary>
-/// Implementa el comando <c>!registrar</c>, encargado de registrar un nuevo
-/// usuario en el sistema.
+/// Implementa el comando <c>!registrar</c>, encargado de registrar en el sistema
+/// al usuario que ejecutó el comando.
 /// </summary>
 /// <remarks>
 /// <para>
-/// Este comando obtiene la información proporcionada por el usuario,
-/// valida los argumentos mínimos requeridos y delega el registro a la
-/// Fachada del sistema.
+/// Este comando obtiene automáticamente el usuario desde Discord y delega
+/// el registro a la Fachada del sistema.
 /// </para>
 /// <para>
 /// No accede directamente a modelos, estrategias, motores de recomendación
@@ -27,7 +26,7 @@ namespace ProyectoPII.Bot.Comandos;
 /// <para>
 /// Postcondiciones:
 /// <list type="bullet">
-/// <item><description>Si los datos son válidos, el usuario queda registrado mediante la Fachada.</description></item>
+/// <item><description>El usuario identificado por <see cref="SocketMessage.Author"/> queda registrado mediante la Fachada.</description></item>
 /// <item><description>Se envía un mensaje informando el resultado de la operación.</description></item>
 /// </list>
 /// </para>
@@ -75,14 +74,13 @@ public class ComandoRegistrar : IComandoDiscord
     }
 
     /// <summary>
-    /// Registra un usuario utilizando el nombre recibido como argumento.
+    /// Registra al usuario que ejecutó el comando.
     /// </summary>
     /// <param name="message">
     /// Mensaje recibido desde Discord.
     /// </param>
     /// <param name="argumentos">
-    /// Argumentos enviados junto al comando.
-    /// El primer argumento corresponde al nombre del usuario.
+    /// Argumentos enviados junto al comando. Este comando no requiere argumentos.
     /// </param>
     /// <returns>
     /// Una tarea asincrónica que representa la ejecución del comando.
@@ -99,7 +97,7 @@ public class ComandoRegistrar : IComandoDiscord
     ///
     /// Postcondiciones:
     /// <list type="bullet">
-    /// <item><description>Si el nombre fue proporcionado, el usuario queda registrado mediante la Fachada.</description></item>
+    /// <item><description>El usuario identificado por <see cref="SocketMessage.Author"/> queda registrado mediante la Fachada.</description></item>
     /// <item><description>Se informa al usuario el resultado de la operación.</description></item>
     /// </list>
     /// </remarks>
@@ -108,14 +106,10 @@ public class ComandoRegistrar : IComandoDiscord
         ArgumentNullException.ThrowIfNull(message);
         ArgumentNullException.ThrowIfNull(argumentos);
 
-        if (argumentos.Length < 1)
-        {
-            await message.Channel.SendMessageAsync("Uso: !registrar <nombre>");
-            return;
-        }
-
         string nombre = message.Author.Username;
-        int id = (int)message.Author.Id;
+        int id = Math.Abs(message.Author.Id.GetHashCode());
+
+        this.fachada.RegistrarUsuario(id, nombre);
 
         await message.Channel.SendMessageAsync(
             $"Usuario {nombre} registrado.");

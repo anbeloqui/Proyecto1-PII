@@ -3,6 +3,9 @@
   <Folder Name="/src/Library/">
     <Project Path="src/Library/ProyectoPII.csproj" />
   </Folder>
+  <Folder Name="/src/Program/">
+    <Project Path="src/Program/ProyectoPII.Program.csproj" />
+  </Folder>
   <Folder Name="/test/">
     <Project Path="test/ProyectoPII.Tests/ProyectoPII.Tests.csproj" />
   </Folder>
