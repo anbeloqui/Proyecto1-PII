@@ -110,4 +110,25 @@ public class FachadaExcepcionesTests
                 new List<string> { "rock" });
         });
     }
+    [Fact]
+    public void RecomendarLanzaExcepcionSiNombreUsuarioEstaVacio()
+    {
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+        Assert.Throws<ExcepcionDatoInvalido>(() =>
+        {
+            fachada.Recomendar("");
+        });
+    }
+
+    [Fact]
+    public void VerHistorialLanzaExcepcionSiNombreUsuarioEstaVacio()
+    {
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+        Assert.Throws<ExcepcionDatoInvalido>(() =>
+        {
+            fachada.VerHistorial("");
+        });
+    }
 }
