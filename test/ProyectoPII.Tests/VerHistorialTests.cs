@@ -1,5 +1,6 @@
 using ProyectoPII.Fachada;
 using ProyectoPII.Modelos;
+using ProyectoPII.Excepciones;
 
 namespace ProyectoPII.Tests;
 
@@ -21,13 +22,14 @@ public class VerHistorialTests
         Assert.Contains(historial, i => i.ItemId == 20);
     }
 
-    [Fact]
-    public void VerHistorialDevuelveListaVaciaSiUsuarioNoExiste()
+[Fact]
+public void VerHistorialLanzaExcepcionSiUsuarioNoExiste()
+{
+    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
     {
-        Fachada.Fachada fachada = new();
-
-        List<Interaccion> historial = fachada.VerHistorial("NoExiste");
-
-        Assert.Empty(historial);
-    }
+        fachada.VerHistorial("NoExiste");
+    });
+}
 }
