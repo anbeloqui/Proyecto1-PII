@@ -17,56 +17,59 @@ public class FachadaExcepcionesTests
             fachada.RegistrarUsuario(2, "Andres");
         });
     }
-[Fact]
-public void AgregarPreferenciaLanzaExcepcionSiUsuarioNoExiste()
-{
-    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
 
-    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+    [Fact]
+    public void AgregarPreferenciaLanzaExcepcionSiUsuarioNoExiste()
     {
-        fachada.AgregarPreferencia("NoExiste", "rock");
-    });
-}
-[Fact]
-public void RecomendarLanzaExcepcionSiUsuarioNoExiste()
-{
-    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
 
-    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        {
+            fachada.AgregarPreferencia("NoExiste", "rock");
+        });
+    }
+
+    [Fact]
+    public void RecomendarLanzaExcepcionSiUsuarioNoExiste()
     {
-        fachada.Recomendar("NoExiste");
-    });
-}
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
 
-[Fact]
-public void LikeLanzaExcepcionSiUsuarioNoExiste()
-{
-    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+        Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        {
+            fachada.Recomendar("NoExiste");
+        });
+    }
 
-    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+    [Fact]
+    public void LikeLanzaExcepcionSiUsuarioNoExiste()
     {
-        fachada.Like("NoExiste", 1);
-    });
-}
-[Fact]
-public void DislikeLanzaExcepcionSiUsuarioNoExiste()
-{
-    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
 
-    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        {
+            fachada.Like("NoExiste", 1);
+        });
+    }
+
+    [Fact]
+    public void DislikeLanzaExcepcionSiUsuarioNoExiste()
     {
-        fachada.Dislike("NoExiste", 1);
-    });
-}
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
 
-[Fact]
-public void GuardarParaDespuesLanzaExcepcionSiUsuarioNoExiste()
-{
-    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+        Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        {
+            fachada.Dislike("NoExiste", 1);
+        });
+    }
 
-    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+    [Fact]
+    public void GuardarParaDespuesLanzaExcepcionSiUsuarioNoExiste()
     {
-        fachada.GuardarParaDespues("NoExiste", 1);
-    });
-}
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+        Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+        {
+            fachada.GuardarParaDespues("NoExiste", 1);
+        });
+    }
 }
