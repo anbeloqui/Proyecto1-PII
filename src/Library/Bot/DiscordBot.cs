@@ -158,6 +158,7 @@ public class DiscordBot
         this.botCore.RegistrarComando(new ComandoDislike(this.fachada));
         this.botCore.RegistrarComando(new ComandoGuardar(this.fachada));
         this.botCore.RegistrarComando(new ComandoAyuda());
+        this.botCore.RegistrarComando(new ComandoConsumido(this.fachada));
     }
 
     /// <summary>
