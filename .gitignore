@@ -1,5 +1,28 @@
+# Build results
 bin/
 obj/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / IDE
 .vs/
+.idea/
+.vscode/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Environment variables and secrets
+.env
+.env.*
+secrets.json
+appsettings.Development.json
+
+# Discord token or local configuration files
+discord-token.txt
+token.txt
+config.local.json
