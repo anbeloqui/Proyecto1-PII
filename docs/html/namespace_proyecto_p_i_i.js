@@ -1,7 +1,9 @@
 var namespace_proyecto_p_i_i =
 [
     [ "Bot", "namespace_proyecto_p_i_i_1_1_bot.html", "namespace_proyecto_p_i_i_1_1_bot" ],
+    [ "DatosIniciales", "namespace_proyecto_p_i_i_1_1_datos_iniciales.html", "namespace_proyecto_p_i_i_1_1_datos_iniciales" ],
     [ "Estrategias", "namespace_proyecto_p_i_i_1_1_estrategias.html", "namespace_proyecto_p_i_i_1_1_estrategias" ],
+    [ "Excepciones", "namespace_proyecto_p_i_i_1_1_excepciones.html", "namespace_proyecto_p_i_i_1_1_excepciones" ],
     [ "Fachada", "namespace_proyecto_p_i_i_1_1_fachada.html", "namespace_proyecto_p_i_i_1_1_fachada" ],
     [ "Filtros", "namespace_proyecto_p_i_i_1_1_filtros.html", "namespace_proyecto_p_i_i_1_1_filtros" ],
     [ "Interfaces", "namespace_proyecto_p_i_i_1_1_interfaces.html", "namespace_proyecto_p_i_i_1_1_interfaces" ],

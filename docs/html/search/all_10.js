@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['un_20elemento_20del_20catálogo_0',['realizar sobre un elemento del catálogo.',['../namespace_proyecto_p_i_i_1_1_modelos.html#autotoc_md1',1,'']]],
-  ['usuario_1',['Usuario',['../class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html',1,'ProyectoPII::Modelos']]],
-  ['usuario_2ecs_2',['Usuario.cs',['../_usuario_8cs.html',1,'']]],
-  ['usuarioid_3',['UsuarioId',['../class_proyecto_p_i_i_1_1_modelos_1_1_interaccion.html#afc8cf3d1dbba903478db5f66eec3c8db',1,'ProyectoPII::Modelos::Interaccion']]]
+  ['tipo_0',['Tipo',['../class_proyecto_p_i_i_1_1_modelos_1_1_interaccion.html#a2dafd03e1c135069ea213e77e6cd7eb0',1,'ProyectoPII::Modelos::Interaccion']]],
+  ['tipointeraccion_1',['TipoInteraccion',['../namespace_proyecto_p_i_i_1_1_modelos.html#autotoc_md0',1,'CLASE TipoInteraccion'],['../namespace_proyecto_p_i_i_1_1_modelos.html#a171ddfb54eef53717f0e732ff1e0dff7',1,'ProyectoPII.Modelos.TipoInteraccion']]],
+  ['tipointeraccion_2ecs_2',['TipoInteraccion.cs',['../_tipo_interaccion_8cs.html',1,'']]]
 ];

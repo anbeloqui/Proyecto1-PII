@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Proyecto PII: ProyectoPII.Fachada.Fachada Class Reference</title>
+<title>ProyectoPII: ProyectoPII.Fachada.Fachada Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Proyecto PII
+   <div id="projectname">ProyectoPII
    </div>
   </td>
  </tr>
@@ -119,13 +119,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_proyecto
 </div><!--header-->
 <div class="contents">
 
-<p>Punto de entrada principal del sistema. Coordina usuarios, catálogo y recomendador.  
+<p>Representa la fachada principal del sistema.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9cd81f0ac44eba42ae09413183d51a07" id="r_a9cd81f0ac44eba42ae09413183d51a07"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9cd81f0ac44eba42ae09413183d51a07">Fachada</a> ()</td></tr>
-<tr class="memdesc:a9cd81f0ac44eba42ae09413183d51a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la fachada, creando la lista de usuarios, el catálogo y el motor de recomendaciones por preferencias.  <br /></td></tr>
+<tr class="memdesc:a9cd81f0ac44eba42ae09413183d51a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la fachada, creando la lista de usuarios, el catálogo y el recomendador del sistema.  <br /></td></tr>
 <tr class="memitem:a5e409d3ca483f8f00eabcb2d524a79e8" id="r_a5e409d3ca483f8f00eabcb2d524a79e8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5e409d3ca483f8f00eabcb2d524a79e8">RegistrarUsuario</a> (int id, string nombre)</td></tr>
 <tr class="memdesc:a5e409d3ca483f8f00eabcb2d524a79e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un nuevo usuario en el sistema.  <br /></td></tr>
 <tr class="memitem:a3115b6d5102043011ce5c67155673a99" id="r_a3115b6d5102043011ce5c67155673a99"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3115b6d5102043011ce5c67155673a99">AgregarItem</a> (<a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> item)</td></tr>
@@ -133,33 +133,38 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acd9f18ae7ba20ba3b78f1fdeeee556a8" id="r_acd9f18ae7ba20ba3b78f1fdeeee556a8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd9f18ae7ba20ba3b78f1fdeeee556a8">EliminarItem</a> (int id)</td></tr>
 <tr class="memdesc:acd9f18ae7ba20ba3b78f1fdeeee556a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina un elemento del catálogo según su identificador.  <br /></td></tr>
 <tr class="memitem:af114217f50bef257cb7fcf6376279ba6" id="r_af114217f50bef257cb7fcf6376279ba6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af114217f50bef257cb7fcf6376279ba6">AgregarCancion</a> (int id, string nombre, string artista, List&lt; string &gt; atributos)</td></tr>
-<tr class="memdesc:af114217f50bef257cb7fcf6376279ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una canción al catálogo del sistema.  <br /></td></tr>
+<tr class="memdesc:af114217f50bef257cb7fcf6376279ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una canción y la agrega al catálogo del sistema.  <br /></td></tr>
+<tr class="memitem:add6443f7fa8bd15ef6cb8dc78066e4e7" id="r_add6443f7fa8bd15ef6cb8dc78066e4e7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add6443f7fa8bd15ef6cb8dc78066e4e7">AgregarPelicula</a> (int id, string nombre, string director, List&lt; string &gt; atributos)</td></tr>
+<tr class="memdesc:add6443f7fa8bd15ef6cb8dc78066e4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea una película y la agrega al catálogo del sistema.  <br /></td></tr>
 <tr class="memitem:ac524fab0d9ff24a3ec77ed9644c72c12" id="r_ac524fab0d9ff24a3ec77ed9644c72c12"><td class="memItemLeft"><a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a>?&#160;</td><td class="memItemRight"><a class="el" href="#ac524fab0d9ff24a3ec77ed9644c72c12">ObtenerUsuario</a> (string nombre)</td></tr>
-<tr class="memdesc:ac524fab0d9ff24a3ec77ed9644c72c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un usuario por su nombre.  <br /></td></tr>
+<tr class="memdesc:ac524fab0d9ff24a3ec77ed9644c72c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca un usuario registrado por su nombre.  <br /></td></tr>
 <tr class="memitem:ae6bd2248dfc11670caf434565d35bef7" id="r_ae6bd2248dfc11670caf434565d35bef7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae6bd2248dfc11670caf434565d35bef7">AgregarPreferencia</a> (string nombreUsuario, string preferencia)</td></tr>
-<tr class="memdesc:ae6bd2248dfc11670caf434565d35bef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una preferencia a un usuario.  <br /></td></tr>
+<tr class="memdesc:ae6bd2248dfc11670caf434565d35bef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega una preferencia a un usuario registrado.  <br /></td></tr>
 <tr class="memitem:a260c0e84413431280919f08b4075d7a4" id="r_a260c0e84413431280919f08b4075d7a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a260c0e84413431280919f08b4075d7a4">AgregarInteraccion</a> (string nombreUsuario, int itemId, <a class="el" href="namespace_proyecto_p_i_i_1_1_modelos.html#a171ddfb54eef53717f0e732ff1e0dff7">TipoInteraccion</a> tipo)</td></tr>
-<tr class="memdesc:a260c0e84413431280919f08b4075d7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra una interacción de un usuario con un elemento.  <br /></td></tr>
+<tr class="memdesc:a260c0e84413431280919f08b4075d7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra una interacción de un usuario registrado con un elemento recomendable.  <br /></td></tr>
 <tr class="memitem:a576b9fac34e861b0b7d018cd2d0d558d" id="r_a576b9fac34e861b0b7d018cd2d0d558d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a576b9fac34e861b0b7d018cd2d0d558d">Like</a> (string nombreUsuario, int itemId)</td></tr>
-<tr class="memdesc:a576b9fac34e861b0b7d018cd2d0d558d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un Like de un usuario sobre un elemento.  <br /></td></tr>
+<tr class="memdesc:a576b9fac34e861b0b7d018cd2d0d558d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un Like de un usuario registrado sobre un elemento recomendable.  <br /></td></tr>
 <tr class="memitem:ae7549d9e62d5d513e08f6ba66feae785" id="r_ae7549d9e62d5d513e08f6ba66feae785"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae7549d9e62d5d513e08f6ba66feae785">Dislike</a> (string nombreUsuario, int itemId)</td></tr>
-<tr class="memdesc:ae7549d9e62d5d513e08f6ba66feae785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un Dislike de un usuario sobre un elemento.  <br /></td></tr>
+<tr class="memdesc:ae7549d9e62d5d513e08f6ba66feae785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra un Dislike de un usuario registrado sobre un elemento recomendable.  <br /></td></tr>
 <tr class="memitem:a24f501efb3c75968a3f4c9ad9232f60f" id="r_a24f501efb3c75968a3f4c9ad9232f60f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a24f501efb3c75968a3f4c9ad9232f60f">GuardarParaDespues</a> (string nombreUsuario, int itemId)</td></tr>
-<tr class="memdesc:a24f501efb3c75968a3f4c9ad9232f60f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda un elemento para verlo después.  <br /></td></tr>
+<tr class="memdesc:a24f501efb3c75968a3f4c9ad9232f60f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda un elemento recomendable para que el usuario pueda verlo después.  <br /></td></tr>
 <tr class="memitem:a9310065e3b55fc366a7a3e7c31acdbec" id="r_a9310065e3b55fc366a7a3e7c31acdbec"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9310065e3b55fc366a7a3e7c31acdbec">ObtenerItems</a> ()</td></tr>
-<tr class="memdesc:a9310065e3b55fc366a7a3e7c31acdbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve todos los elementos recomendables del catálogo.  <br /></td></tr>
+<tr class="memdesc:a9310065e3b55fc366a7a3e7c31acdbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve todos los elementos recomendables registrados en el catálogo.  <br /></td></tr>
 <tr class="memitem:aee4abe30bf73a43782b223053986b743" id="r_aee4abe30bf73a43782b223053986b743"><td class="memItemLeft">List&lt; <a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_interaccion.html">Interaccion</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aee4abe30bf73a43782b223053986b743">VerHistorial</a> (string nombreUsuario)</td></tr>
-<tr class="memdesc:aee4abe30bf73a43782b223053986b743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el historial de interacciones de un usuario.  <br /></td></tr>
+<tr class="memdesc:aee4abe30bf73a43782b223053986b743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el historial de interacciones de un usuario registrado.  <br /></td></tr>
 <tr class="memitem:a9ba9adbde9e692180dec1ea60210aa36" id="r_a9ba9adbde9e692180dec1ea60210aa36"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9ba9adbde9e692180dec1ea60210aa36">Recomendar</a> (string nombreUsuario)</td></tr>
-<tr class="memdesc:a9ba9adbde9e692180dec1ea60210aa36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones para un usuario.  <br /></td></tr>
+<tr class="memdesc:a9ba9adbde9e692180dec1ea60210aa36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones para un usuario registrado utilizando la estrategia por preferencias.  <br /></td></tr>
 <tr class="memitem:ad27bec814554ca6f5c5a94459fad0e2b" id="r_ad27bec814554ca6f5c5a94459fad0e2b"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad27bec814554ca6f5c5a94459fad0e2b">Recomendar</a> (string nombreUsuario, string tipoEstrategia)</td></tr>
-<tr class="memdesc:ad27bec814554ca6f5c5a94459fad0e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones utilizando la estrategia indicada.  <br /></td></tr>
+<tr class="memdesc:ad27bec814554ca6f5c5a94459fad0e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones para un usuario registrado utilizando la estrategia indicada.  <br /></td></tr>
+<tr class="memitem:af2180b0421d7d445df809d3a30d57d41" id="r_af2180b0421d7d445df809d3a30d57d41"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af2180b0421d7d445df809d3a30d57d41">Fachada</a> (bool cargarDatosIniciales)</td></tr>
+<tr class="memdesc:af2180b0421d7d445df809d3a30d57d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la fachada, permitiendo indicar si se deben cargar datos iniciales en el catálogo.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Punto de entrada principal del sistema. Coordina usuarios, catálogo y recomendador. </p>
+<div class="textblock"><p>Representa la fachada principal del sistema. </p>
+<p>Aplica el patrón Facade, centralizando el acceso al sistema y ocultando la complejidad interna de usuarios, catálogo y recomendaciones. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9cd81f0ac44eba42ae09413183d51a07" name="a9cd81f0ac44eba42ae09413183d51a07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd81f0ac44eba42ae09413183d51a07">&#9670;&#160;</a></span>Fachada()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd81f0ac44eba42ae09413183d51a07">&#9670;&#160;</a></span>Fachada() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +178,34 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializa una nueva instancia de la fachada, creando la lista de usuarios, el catálogo y el motor de recomendaciones por preferencias. </p>
+<p>Inicializa una nueva instancia de la fachada, creando la lista de usuarios, el catálogo y el recomendador del sistema. </p>
+<p>Postcondición: la fachada queda preparada para registrar usuarios, administrar el catálogo y delegar recomendaciones. </p>
+
+</div>
+</div>
+<a id="af2180b0421d7d445df809d3a30d57d41" name="af2180b0421d7d445df809d3a30d57d41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2180b0421d7d445df809d3a30d57d41">&#9670;&#160;</a></span>Fachada() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ProyectoPII.Fachada.Fachada.Fachada </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>cargarDatosIniciales</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa una nueva instancia de la fachada, permitiendo indicar si se deben cargar datos iniciales en el catálogo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cargarDatosIniciales</td><td>Indica si se deben cargar los datos iniciales del sistema. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: el valor recibido debe indicar explícitamente si se desea cargar el catálogo inicial. Postcondición: la fachada queda inicializada y, si corresponde, el catálogo contiene los datos iniciales. </p>
 
 </div>
 </div>
@@ -207,13 +239,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Agrega una canción al catálogo del sistema. </p>
+<p>Crea una canción y la agrega al catálogo del sistema. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Identificador de la canción.</td></tr>
     <tr><td class="paramname">nombre</td><td>Nombre de la canción.</td></tr>
     <tr><td class="paramname">artista</td><td>Artista de la canción.</td></tr>
     <tr><td class="paramname">atributos</td><td>Atributos usados para recomendar.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: los datos de la canción deben ser válidos. Postcondición: la canción queda creada y agregada al catálogo del sistema. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de la canción o el artista son nulos, vacíos o contienen solo espacios. </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,12 +283,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Registra una interacción de un usuario con un elemento. </p>
+<p>Registra una interacción de un usuario registrado con un elemento recomendable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
     <tr><td class="paramname">itemId</td><td>Identificador del elemento.</td></tr>
     <tr><td class="paramname">tipo</td><td>Tipo de interacción realizada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Postcondición: la interacción queda agregada al historial del usuario. Si la interacción es de tipo Consumido, también se registra el identificador del elemento en el historial de consumidos. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
   </table>
   </dd>
 </dl>
@@ -278,6 +325,56 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Precondición: el elemento recomendable debe estar correctamente creado. Postcondición: el elemento queda agregado al catálogo del sistema. </p>
+
+</div>
+</div>
+<a id="add6443f7fa8bd15ef6cb8dc78066e4e7" name="add6443f7fa8bd15ef6cb8dc78066e4e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6443f7fa8bd15ef6cb8dc78066e4e7">&#9670;&#160;</a></span>AgregarPelicula()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProyectoPII.Fachada.Fachada.AgregarPelicula </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>nombre</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>director</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; string &gt;</td>          <td class="paramname"><span class="paramname"><em>atributos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crea una película y la agrega al catálogo del sistema. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identificador de la película.</td></tr>
+    <tr><td class="paramname">nombre</td><td>Nombre de la película.</td></tr>
+    <tr><td class="paramname">director</td><td>Director de la película.</td></tr>
+    <tr><td class="paramname">atributos</td><td>Atributos usados para recomendar.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: los datos de la película deben ser válidos. Postcondición: la película queda creada y agregada al catálogo del sistema. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de la película o el director son nulos, vacíos o contienen solo espacios. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -300,11 +397,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Agrega una preferencia a un usuario. </p>
+<p>Agrega una preferencia a un usuario registrado. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
     <tr><td class="paramname">preferencia</td><td>Preferencia a agregar.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Precondición: la preferencia no puede estar vacía. Postcondición: la preferencia queda agregada al usuario indicado. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario o la preferencia son nulos, vacíos o contienen solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
   </table>
   </dd>
 </dl>
@@ -330,11 +435,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Registra un Dislike de un usuario sobre un elemento. </p>
+<p>Registra un Dislike de un usuario registrado sobre un elemento recomendable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
     <tr><td class="paramname">itemId</td><td>Identificador del elemento.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Postcondición: queda registrada una interacción de tipo Dislike en el historial del usuario. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
   </table>
   </dd>
 </dl>
@@ -363,6 +476,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Precondición: el identificador debe corresponder al elemento que se desea eliminar. Postcondición: si el elemento existe, queda eliminado del catálogo. </p>
 
 </div>
 </div>
@@ -385,11 +499,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Guarda un elemento para verlo después. </p>
+<p>Guarda un elemento recomendable para que el usuario pueda verlo después. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
     <tr><td class="paramname">itemId</td><td>Identificador del elemento.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Postcondición: queda registrada una interacción de tipo Guardado en el historial del usuario. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
   </table>
   </dd>
 </dl>
@@ -415,11 +537,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Registra un Like de un usuario sobre un elemento. </p>
+<p>Registra un Like de un usuario registrado sobre un elemento recomendable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
     <tr><td class="paramname">itemId</td><td>Identificador del elemento.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Postcondición: queda registrada una interacción de tipo Like en el historial del usuario. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
   </table>
   </dd>
 </dl>
@@ -441,8 +571,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Devuelve todos los elementos recomendables del catálogo. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendables.</dd></dl>
+<p>Devuelve todos los elementos recomendables registrados en el catálogo. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendables disponibles.</dd></dl>
+<p>Precondición: el catálogo debe estar inicializado. Postcondición: no modifica el estado del sistema; solo devuelve los elementos disponibles. </p>
 
 </div>
 </div>
@@ -461,14 +592,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Busca un usuario por su nombre. </p>
+<p>Busca un usuario registrado por su nombre. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nombre</td><td>Nombre del usuario.</td></tr>
+    <tr><td class="paramname">nombre</td><td>Nombre del usuario a buscar.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html" title="Representa un usuario del sistema. Almacena su información, preferencias e historial de interacciones...">Usuario</a> encontrado, o null si no existe.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>El usuario encontrado, o null si no existe un usuario registrado con ese nombre. </dd></dl>
+<p>Precondición: se debe proporcionar un nombre de usuario. Postcondición: no modifica el estado del sistema; solo devuelve el resultado de la búsqueda. </p>
 
 </div>
 </div>
@@ -487,7 +619,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Genera recomendaciones para un usuario. </p>
+<p>Genera recomendaciones para un usuario registrado utilizando la estrategia por preferencias. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
@@ -495,6 +627,14 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendados.</dd></dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Postcondición: se devuelve una lista de elementos recomendables para el usuario. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -517,7 +657,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Genera recomendaciones utilizando la estrategia indicada. </p>
+<p>Genera recomendaciones para un usuario registrado utilizando la estrategia indicada. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
@@ -526,6 +666,14 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendados.</dd></dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Precondición: el tipo de estrategia debe corresponder a una estrategia disponible. Postcondición: se devuelve una lista de elementos recomendables para el usuario. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -556,6 +704,14 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Precondición: el nombre del usuario no puede estar vacío. Precondición: no debe existir previamente un usuario con el mismo nombre. Postcondición: el usuario queda agregado a la lista de usuarios registrados. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre recibido es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_ya_existe.html" title="Excepción lanzada cuando se intenta registrar un usuario que ya existe.">ExcepcionUsuarioYaExiste</a></td><td>Se lanza cuando ya existe un usuario registrado con el mismo nombre. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -574,7 +730,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Devuelve el historial de interacciones de un usuario. </p>
+<p>Devuelve el historial de interacciones de un usuario registrado. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
@@ -582,6 +738,14 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Lista de interacciones del usuario.</dd></dl>
+<p>Precondición: el usuario debe estar registrado en el sistema. Postcondición: se devuelve la lista de interacciones asociada al usuario. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_dato_invalido.html" title="Excepción lanzada cuando se recibe un dato inválido para una operación del dominio.">ExcepcionDatoInvalido</a></td><td>Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios. </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_proyecto_p_i_i_1_1_excepciones_1_1_excepcion_usuario_no_encontrado.html" title="Excepción lanzada cuando se intenta operar con un usuario inexistente.">ExcepcionUsuarioNoEncontrado</a></td><td>Se lanza cuando no existe un usuario registrado con el nombre indicado. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

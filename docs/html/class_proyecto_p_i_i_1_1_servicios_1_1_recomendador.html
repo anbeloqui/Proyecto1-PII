@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Proyecto PII: ProyectoPII.Servicios.Recomendador Class Reference</title>
+<title>ProyectoPII: ProyectoPII.Servicios.Recomendador Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Proyecto PII
+   <div id="projectname">ProyectoPII
    </div>
   </td>
  </tr>
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_proyecto
 </div><!--header-->
 <div class="contents">
 
-<p>Motor principal de recomendación. Utiliza una estrategia intercambiable para generar recomendaciones.  
+<p>Coordina el proceso de recomendación.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -130,9 +130,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3c01fb4454ced1029672778004ca91b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un recomendador con una estrategia específica.  <br /></td></tr>
 <tr class="memitem:aa42d038a5949af2f5cd1bfefef513c12" id="r_aa42d038a5949af2f5cd1bfefef513c12"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa42d038a5949af2f5cd1bfefef513c12">Recomendar</a> (<a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a> usuario, List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt; catalogo)</td></tr>
 <tr class="memdesc:aa42d038a5949af2f5cd1bfefef513c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones para un usuario según la estrategia configurada.  <br /></td></tr>
+<tr class="memitem:ab6d735b11b422b83ca54085a55f2e60d" id="r_ab6d735b11b422b83ca54085a55f2e60d"><td class="memItemLeft">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ab6d735b11b422b83ca54085a55f2e60d">Recomendar</a> (string nombreUsuario, string tipoEstrategia, List&lt; <a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a> &gt; usuarios, <a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_catalogo.html">Catalogo</a> catalogo)</td></tr>
+<tr class="memdesc:ab6d735b11b422b83ca54085a55f2e60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera recomendaciones buscando al usuario por nombre y utilizando la estrategia indicada.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Motor principal de recomendación. Utiliza una estrategia intercambiable para generar recomendaciones. </p>
+<div class="textblock"><p>Coordina el proceso de recomendación. </p>
+<p>Esta clase actúa como intermediaria entre la fachada y el motor de recomendaciones, seleccionando la estrategia correspondiente y delegando la ejecución al <a class="el" href="class_proyecto_p_i_i_1_1_servicios_1_1_recommendation_engine.html" title="Motor de recomendaciones que coordina el pipeline: estrategia, filtros y ranking.">RecommendationEngine</a>. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5c0cd9bbe7e35a4c247f3d9cbfdf4a7c" name="a5c0cd9bbe7e35a4c247f3d9cbfdf4a7c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5c0cd9bbe7e35a4c247f3d9cbfdf4a7c">&#9670;&#160;</a></span>Recomendador() <span class="overload">[1/2]</span></h2>
@@ -150,6 +153,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Crea un recomendador usando la estrategia por preferencias. </p>
+<p>Postcondición: el recomendador queda configurado con una estrategia por preferencias por defecto. </p>
 
 </div>
 </div>
@@ -175,12 +179,57 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>Precondición: se debe proporcionar una estrategia válida. Postcondición: el recomendador queda configurado con la estrategia indicada. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ab6d735b11b422b83ca54085a55f2e60d" name="ab6d735b11b422b83ca54085a55f2e60d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d735b11b422b83ca54085a55f2e60d">&#9670;&#160;</a></span>Recomendar() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html">IRecomendable</a> &gt; ProyectoPII.Servicios.Recomendador.Recomendar </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>nombreUsuario</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>tipoEstrategia</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; <a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html">Usuario</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>usuarios</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_catalogo.html">Catalogo</a></td>          <td class="paramname"><span class="paramname"><em>catalogo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Genera recomendaciones buscando al usuario por nombre y utilizando la estrategia indicada. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nombreUsuario</td><td>Nombre del usuario.</td></tr>
+    <tr><td class="paramname">tipoEstrategia</td><td>Tipo de estrategia a utilizar.</td></tr>
+    <tr><td class="paramname">usuarios</td><td>Lista de usuarios del sistema.</td></tr>
+    <tr><td class="paramname">catalogo</td><td>Catálogo de elementos recomendables.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendados.</dd></dl>
+<p>Precondición: el usuario debe existir en la lista de usuarios. Precondición: el tipo de estrategia debe corresponder a una estrategia disponible. Postcondición: se devuelve una lista de recomendaciones generada por el motor de recomendaciones, aplicando estrategia, filtros y ranking. </p>
+
+</div>
+</div>
 <a id="aa42d038a5949af2f5cd1bfefef513c12" name="aa42d038a5949af2f5cd1bfefef513c12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa42d038a5949af2f5cd1bfefef513c12">&#9670;&#160;</a></span>Recomendar()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42d038a5949af2f5cd1bfefef513c12">&#9670;&#160;</a></span>Recomendar() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,11 +251,12 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">usuario</td><td><a class="el" href="class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html" title="Representa un usuario del sistema. Almacena su información, preferencias e historial de interacciones...">Usuario</a> para el que se generan recomendaciones.</td></tr>
-    <tr><td class="paramname">items</td><td>Elementos disponibles para recomendar.</td></tr>
+    <tr><td class="paramname">catalogo</td><td>Elementos disponibles para recomendar.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Lista de elementos recomendados.</dd></dl>
+<p>Precondición: el usuario y el catálogo deben ser válidos. Postcondición: se devuelve una lista de recomendaciones generada por la estrategia configurada. </p>
 
 </div>
 </div>

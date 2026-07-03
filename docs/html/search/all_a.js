@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nombre_0',['Nombre',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html#ac2cac1860751afb8fb402c4cd403de3a',1,'ProyectoPII.Interfaces.IRecomendable.Nombre'],['../class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#a21fb0e436a76e9bf8516e5fee14a82fd',1,'ProyectoPII.Modelos.Cancion.Nombre'],['../class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html#a270363deabae898ebcfb1b746ef71662',1,'ProyectoPII.Modelos.Usuario.Nombre']]]
+  ['like_0',['Like',['../class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a576b9fac34e861b0b7d018cd2d0d558d',1,'ProyectoPII.Fachada.Fachada.Like()'],['../namespace_proyecto_p_i_i_1_1_modelos.html#a171ddfb54eef53717f0e732ff1e0dff7a98b82c200a2e309b24cb481970f3fcc4',1,'ProyectoPII.Modelos.Like']]]
 ];

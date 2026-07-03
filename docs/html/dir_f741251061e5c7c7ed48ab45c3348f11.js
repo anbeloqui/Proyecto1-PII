@@ -1,7 +1,9 @@
 var dir_f741251061e5c7c7ed48ab45c3348f11 =
 [
     [ "Bot", "dir_96d2e02dfa5fceb7791156c661fdaf56.html", "dir_96d2e02dfa5fceb7791156c661fdaf56" ],
+    [ "DatosIniciales", "dir_fb5c0a36a1f9757b115b788ef7639e88.html", "dir_fb5c0a36a1f9757b115b788ef7639e88" ],
     [ "Estrategias", "dir_9276f90205676f59acbf4043c9e9aa50.html", "dir_9276f90205676f59acbf4043c9e9aa50" ],
+    [ "Excepciones", "dir_3be738f0249d70895e6577cd69c6ea1a.html", "dir_3be738f0249d70895e6577cd69c6ea1a" ],
     [ "Fachada", "dir_0487727bf197ca2effce048e8d95b8d9.html", "dir_0487727bf197ca2effce048e8d95b8d9" ],
     [ "Filtros", "dir_ca289a8b2fba0f7f1746c565caa5afc4.html", "dir_ca289a8b2fba0f7f1746c565caa5afc4" ],
     [ "Interfaces", "dir_cbe82175095d6d72ec018218ba990fa7.html", "dir_cbe82175095d6d72ec018218ba990fa7" ],

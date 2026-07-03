@@ -1,5 +1,6 @@
 var dir_cbe82175095d6d72ec018218ba990fa7 =
 [
+    [ "IComandoDiscord.cs", "_i_comando_discord_8cs.html", "_i_comando_discord_8cs" ],
     [ "IEstrategiaRecomendacion.cs", "_i_estrategia_recomendacion_8cs.html", "_i_estrategia_recomendacion_8cs" ],
     [ "IFiltroRecomendacion.cs", "_i_filtro_recomendacion_8cs.html", "_i_filtro_recomendacion_8cs" ],
     [ "IOrdenadorRecomendacion.cs", "_i_ordenador_recomendacion_8cs.html", "_i_ordenador_recomendacion_8cs" ],

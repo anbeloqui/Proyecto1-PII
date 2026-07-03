@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tipointeraccion_2ecs_0',['TipoInteraccion.cs',['../_tipo_interaccion_8cs.html',1,'']]]
+  ['strategyfactory_2ecs_0',['StrategyFactory.cs',['../_strategy_factory_8cs.html',1,'']]]
 ];

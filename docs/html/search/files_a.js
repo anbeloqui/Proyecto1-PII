@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['strategyfactory_2ecs_0',['StrategyFactory.cs',['../_strategy_factory_8cs.html',1,'']]]
+  ['recomendador_2ecs_0',['Recomendador.cs',['../_recomendador_8cs.html',1,'']]],
+  ['recommendationengine_2ecs_1',['RecommendationEngine.cs',['../_recommendation_engine_8cs.html',1,'']]]
 ];
