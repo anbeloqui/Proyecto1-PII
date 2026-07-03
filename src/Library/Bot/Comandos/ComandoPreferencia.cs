@@ -67,7 +67,8 @@ public class ComandoPreferencia : IComandoDiscord
     /// </param>
     /// <param name="argumentos">
     /// Argumentos del comando.
-    /// El primer argumento corresponde a la preferencia que se desea agregar.
+    /// Todos los argumentos recibidos se unen para formar la preferencia,
+    /// permitiendo registrar preferencias compuestas como "ciencia ficcion".
     /// El usuario se obtiene automáticamente desde <see cref="SocketMessage.Author"/>.
     /// </param>
     /// <returns>
@@ -102,7 +103,7 @@ public class ComandoPreferencia : IComandoDiscord
         }
 
         string nombreUsuario = message.Author.Username;
-        string preferencia = argumentos[0];
+        string preferencia = string.Join(" ", argumentos);
 
         this.fachada.AgregarPreferencia(nombreUsuario, preferencia);
 

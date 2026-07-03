@@ -73,7 +73,9 @@ public class DiscordBot
     public DiscordBot()
     {
         this.fachada = new FachadaProyecto();
+
         CancionesIniciales.Cargar(this.fachada);
+        PeliculasIniciales.Cargar(this.fachada);
 
         this.client = new DiscordSocketClient(new DiscordSocketConfig
         {
