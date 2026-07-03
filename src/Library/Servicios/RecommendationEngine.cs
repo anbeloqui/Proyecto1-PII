@@ -1,13 +1,17 @@
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
-using ProyectoPII.Estrategias;
 using ProyectoPII.Filtros;
 using ProyectoPII.Ordenadores;
 
 namespace ProyectoPII.Servicios;
 
 /// <summary>
-/// Motor de recomendaciones que coordina estrategia, filtros y ranking.
+/// Motor de recomendaciones que coordina el pipeline:
+/// estrategia, filtros y ranking.
+/// 
+/// Aplica el patrón Strategy mediante IEstrategiaRecomendacion
+/// y depende de abstracciones para cumplir con el principio de inversión
+/// de dependencias.
 /// </summary>
 public class RecommendationEngine
 {
