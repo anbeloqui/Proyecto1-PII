@@ -2,6 +2,7 @@ using Discord;
 using Discord.WebSocket;
 using ProyectoPII.Bot.Comandos;
 using FachadaProyecto = ProyectoPII.Fachada.Fachada;
+using ProyectoPII.DatosIniciales;
 
 namespace ProyectoPII.Bot;
 
@@ -62,7 +63,8 @@ public class DiscordBot
     ///
     /// Postcondiciones:
     /// <list type="bullet">
-    /// <item><description>Se crea una instancia de la Fachada.</description></item>
+    /// /// <item><description>Se crea una instancia de la Fachada.</description></item>
+    /// <item><description>Se cargan las canciones iniciales del catálogo.</description></item>
     /// <item><description>Se configura el cliente de Discord.</description></item>
     /// <item><description>Se inicializa el núcleo de comandos.</description></item>
     /// <item><description>Se registran los comandos disponibles.</description></item>
@@ -71,6 +73,7 @@ public class DiscordBot
     public DiscordBot()
     {
         this.fachada = new FachadaProyecto();
+        CancionesIniciales.Cargar(this.fachada);
 
         this.client = new DiscordSocketClient(new DiscordSocketConfig
         {
@@ -83,7 +86,6 @@ public class DiscordBot
         this.botCore = new BotCore();
         this.RegistrarComandos();
     }
-
     /// <summary>
     /// Inicia sesión en Discord y conecta el bot.
     /// </summary>
