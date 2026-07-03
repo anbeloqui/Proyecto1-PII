@@ -2,6 +2,7 @@ using ProyectoPII.Excepciones;
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
 using ProyectoPII.Servicios;
+using ProyectoPII.DatosIniciales;
 
 namespace ProyectoPII.Fachada;
 
@@ -119,6 +120,41 @@ public class Fachada
         };
 
         AgregarItem(cancion);
+    }
+
+    /// <summary>
+    /// Crea una película y la agrega al catálogo del sistema.
+    /// </summary>
+    /// <param name="id">Identificador de la película.</param>
+    /// <param name="nombre">Nombre de la película.</param>
+    /// <param name="director">Director de la película.</param>
+    /// <param name="atributos">Atributos usados para recomendar.</param>
+    /// <remarks>
+    /// Precondición: los datos de la película deben ser válidos.
+    /// Postcondición: la película queda creada y agregada al catálogo del sistema.
+    /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de la película o el director son nulos,
+    /// vacíos o contienen solo espacios.
+    /// </exception>
+    public void AgregarPelicula(
+        int id,
+        string nombre,
+        string director,
+        List<string> atributos)
+    {
+        ValidarTextoObligatorio(nombre, "nombre");
+        ValidarTextoObligatorio(director, "director");
+
+        Pelicula pelicula = new Pelicula
+        {
+            Id = id,
+            Nombre = nombre,
+            Director = director,
+            Atributos = atributos
+        };
+
+        AgregarItem(pelicula);
     }
 
     /// <summary>
@@ -403,5 +439,41 @@ public class Fachada
             tipoEstrategia,
             usuarios,
             catalogo);
+    }
+
+    /// <summary>
+    /// Inicializa una nueva instancia de la fachada, permitiendo indicar
+    /// si se deben cargar datos iniciales en el catálogo.
+    /// </summary>
+    /// <param name="cargarDatosIniciales">
+    /// Indica si se deben cargar los datos iniciales del sistema.
+    /// </param>
+    /// <remarks>
+    /// Precondición: el valor recibido debe indicar explícitamente si se desea
+    /// cargar el catálogo inicial.
+    /// Postcondición: la fachada queda inicializada y, si corresponde,
+    /// el catálogo contiene los datos iniciales.
+    /// </remarks>
+    public Fachada(bool cargarDatosIniciales) : this()
+    {
+        if (cargarDatosIniciales)
+        {
+            CargarPeliculasIniciales();
+        }
+    }
+    
+    /// <summary>
+    /// Carga en el catálogo las películas iniciales del sistema.
+    /// </summary>
+    /// <remarks>
+    /// Postcondición: el catálogo contiene las películas definidas en
+    /// <see cref="PeliculasIniciales"/>.
+    /// </remarks>
+    private void CargarPeliculasIniciales()
+    {
+        foreach (Pelicula pelicula in PeliculasIniciales.Obtener())
+        {
+            AgregarItem(pelicula);
+        }
     }
 }
