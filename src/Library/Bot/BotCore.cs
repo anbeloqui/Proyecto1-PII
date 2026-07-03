@@ -1,4 +1,5 @@
 using Discord.WebSocket;
+using ProyectoPII.Excepciones;
 using ProyectoPII.Interfaces;
 
 namespace ProyectoPII.Bot;
@@ -32,6 +33,7 @@ namespace ProyectoPII.Bot;
 /// <list type="bullet">
 /// <item><description>Cada comando queda asociado a su nombre para futuras ejecuciones.</description></item>
 /// <item><description>Si un mensaje corresponde a un comando registrado, este será ejecutado.</description></item>
+/// <item><description>Las excepciones de dominio se informan al usuario sin detener el bot.</description></item>
 /// </list>
 /// </para>
 /// </remarks>
@@ -62,6 +64,9 @@ public class BotCore
     /// <param name="comando">
     /// Comando que se desea registrar.
     /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// Se lanza cuando <paramref name="comando"/> es <see langword="null"/>.
+    /// </exception>
     /// <remarks>
     /// Precondiciones:
     /// <list type="bullet">
@@ -74,10 +79,6 @@ public class BotCore
     /// <item><description>Si ya existía un comando con ese nombre, será reemplazado.</description></item>
     /// </list>
     /// </remarks>
-    /// <param name="comando">Comando a registrar.</param>
-    /// <exception cref="ArgumentNullException">
-    /// Se lanza cuando <paramref name="comando"/> es <see langword="null"/>.
-    /// </exception>
     public void RegistrarComando(IComandoDiscord comando)
     {
         ArgumentNullException.ThrowIfNull(comando);
@@ -94,6 +95,9 @@ public class BotCore
     /// <returns>
     /// Una tarea asincrónica que representa el procesamiento del mensaje.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Se lanza cuando <paramref name="message"/> es <see langword="null"/>.
+    /// </exception>
     /// <remarks>
     /// Precondiciones:
     /// <list type="bullet">
@@ -105,11 +109,9 @@ public class BotCore
     /// <item><description>Si el mensaje proviene de otro bot, no se realiza ninguna acción.</description></item>
     /// <item><description>Si el comando existe, se delega su ejecución.</description></item>
     /// <item><description>Si el comando no existe, el método finaliza sin producir cambios.</description></item>
+    /// <item><description>Si ocurre una excepción de dominio, se informa al usuario por Discord.</description></item>
     /// </list>
     /// </remarks>
-    /// <exception cref="ArgumentNullException">
-    /// Se lanza cuando <paramref name="message"/> es <see langword="null"/>.
-    /// </exception>
     public async Task ProcesarMensajeAsync(SocketMessage message)
     {
         ArgumentNullException.ThrowIfNull(message);
@@ -133,7 +135,28 @@ public class BotCore
 
         if (this.comandos.TryGetValue(nombreComando, out IComandoDiscord? comando))
         {
-            await comando.EjecutarAsync(message, argumentos);
+            try
+            {
+                await comando.EjecutarAsync(message, argumentos);
+            }
+            catch (ExcepcionUsuarioNoEncontrado)
+            {
+                await message.Channel.SendMessageAsync(
+                    "No estás registrado. Usá !registrar antes de continuar.");
+            }
+            catch (ExcepcionUsuarioYaExiste)
+            {
+                await message.Channel.SendMessageAsync(
+                    "Ya estás registrado en el sistema.");
+            }
+            catch (ExcepcionDatoInvalido ex)
+            {
+                await message.Channel.SendMessageAsync(ex.Message);
+            }
+            catch (ExcepcionDominio ex)
+            {
+                await message.Channel.SendMessageAsync(ex.Message);
+            }
         }
     }
 }
