@@ -4,7 +4,6 @@ using ProyectoPII.Servicios;
 using ProyectoPII.Excepciones;
 
 namespace ProyectoPII.Fachada;
-
 /// <summary>
 /// Inicializa una nueva instancia de la fachada.
 /// 
@@ -18,9 +17,13 @@ public class Fachada
     private Recomendador recomendador;
     
     /// <summary>
-    /// Inicializa una nueva instancia de la fachada, creando la lista de usuarios,
-    /// el catálogo y el motor de recomendaciones por preferencias.
-    /// </summary>
+/// Inicializa una nueva instancia de la fachada, creando la lista de usuarios,
+/// el catálogo y el recomendador del sistema.
+/// </summary>
+/// <remarks>
+/// Postcondición: la fachada queda preparada para registrar usuarios,
+/// administrar el catálogo y delegar recomendaciones.
+/// </remarks>
    public Fachada()
 {
     usuarios = new List<Usuario>();
@@ -51,30 +54,42 @@ public class Fachada
 }
 
     /// <summary>
-    /// Agrega un elemento recomendable al catálogo.
-    /// </summary>
-    /// <param name="item">Elemento a agregar.</param>
+/// Agrega un elemento recomendable al catálogo.
+/// </summary>
+/// <param name="item">Elemento a agregar.</param>
+/// <remarks>
+/// Precondición: el elemento recomendable debe estar correctamente creado.
+/// Postcondición: el elemento queda agregado al catálogo del sistema.
+/// </remarks>
     public void AgregarItem(IRecomendable item)
     {
         catalogo.AgregarItem(item);
     }
 
     /// <summary>
-    /// Elimina un elemento del catálogo según su identificador.
-    /// </summary>
-    /// <param name="id">Identificador del elemento a eliminar.</param>
+/// Elimina un elemento del catálogo según su identificador.
+/// </summary>
+/// <param name="id">Identificador del elemento a eliminar.</param>
+/// <remarks>
+/// Precondición: el identificador debe corresponder al elemento que se desea eliminar.
+/// Postcondición: si el elemento existe, queda eliminado del catálogo.
+/// </remarks>
     public void EliminarItem(int id)
     {
         catalogo.EliminarItem(id);
     }
 
     /// <summary>
-    /// Agrega una canción al catálogo del sistema.
-    /// </summary>
-    /// <param name="id">Identificador de la canción.</param>
-    /// <param name="nombre">Nombre de la canción.</param>
-    /// <param name="artista">Artista de la canción.</param>
-    /// <param name="atributos">Atributos usados para recomendar.</param>
+/// Crea una canción y la agrega al catálogo del sistema.
+/// </summary>
+/// <param name="id">Identificador de la canción.</param>
+/// <param name="nombre">Nombre de la canción.</param>
+/// <param name="artista">Artista de la canción.</param>
+/// <param name="atributos">Atributos usados para recomendar.</param>
+/// <remarks>
+/// Precondición: los datos de la canción deben ser válidos.
+/// Postcondición: la canción queda creada y agregada al catálogo del sistema.
+/// </remarks>
     public void AgregarCancion(int id, string nombre, string artista, List<string> atributos)
     {
         Cancion cancion = new Cancion
@@ -89,15 +104,33 @@ public class Fachada
     }
 
     /// <summary>
-    /// Busca un usuario por su nombre.
-    /// </summary>
-    /// <param name="nombre">Nombre del usuario.</param>
-    /// <returns>Usuario encontrado, o null si no existe.</returns>
+/// Busca un usuario registrado por su nombre.
+/// </summary>
+/// <param name="nombre">Nombre del usuario a buscar.</param>
+/// <returns>
+/// El usuario encontrado, o null si no existe un usuario registrado con ese nombre.
+/// </returns>
+/// <remarks>
+/// Precondición: se debe proporcionar un nombre de usuario.
+/// Postcondición: no modifica el estado del sistema; solo devuelve el resultado de la búsqueda.
+/// </remarks>
     public Usuario? ObtenerUsuario(string nombre)
     {
         return usuarios.Find(u => u.Nombre == nombre);
     }
     
+    /// <summary>
+/// Obtiene un usuario registrado o lanza una excepción de dominio si no existe.
+/// </summary>
+/// <param name="nombreUsuario">Nombre del usuario a buscar.</param>
+/// <returns>Usuario registrado con el nombre indicado.</returns>
+/// <remarks>
+/// Precondición: el usuario debe estar registrado en el sistema.
+/// Postcondición: se devuelve una instancia válida de Usuario.
+/// </remarks>
+/// <exception cref="ExcepcionUsuarioNoEncontrado">
+/// Se lanza cuando no existe un usuario registrado con el nombre indicado.
+/// </exception>
     private Usuario ObtenerUsuarioRegistrado(string nombreUsuario)
 {
     Usuario? usuario = ObtenerUsuario(nombreUsuario);
@@ -222,9 +255,13 @@ public class Fachada
     }
 
     /// <summary>
-    /// Devuelve todos los elementos recomendables del catálogo.
-    /// </summary>
-    /// <returns>Lista de elementos recomendables.</returns>
+/// Devuelve todos los elementos recomendables registrados en el catálogo.
+/// </summary>
+/// <returns>Lista de elementos recomendables disponibles.</returns>
+/// <remarks>
+/// Precondición: el catálogo debe estar inicializado.
+/// Postcondición: no modifica el estado del sistema; solo devuelve los elementos disponibles.
+/// </remarks>
     public List<IRecomendable> ObtenerItems()
     {
         return catalogo.ObtenerItems();
