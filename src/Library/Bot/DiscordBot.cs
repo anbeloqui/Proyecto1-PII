@@ -53,6 +53,11 @@ public class DiscordBot
     private readonly BotCore botCore;
 
     /// <summary>
+    /// Indica si ya se envió el mensaje de bienvenida en esta ejecución.
+    /// </summary>
+    private bool mensajeBienvenidaEnviado;
+
+    /// <summary>
     /// Inicializa una nueva instancia de la clase <see cref="DiscordBot"/>.
     /// </summary>
     /// <remarks>
@@ -118,6 +123,7 @@ public class DiscordBot
         ArgumentException.ThrowIfNullOrWhiteSpace(token);
 
         this.client.Log += this.LogAsync;
+        this.client.Ready += this.ReadyAsync;
         this.client.MessageReceived += this.MessageReceivedAsync;
 
         await this.client.LoginAsync(TokenType.Bot, token);
@@ -151,6 +157,7 @@ public class DiscordBot
         this.botCore.RegistrarComando(new ComandoLike(this.fachada));
         this.botCore.RegistrarComando(new ComandoDislike(this.fachada));
         this.botCore.RegistrarComando(new ComandoGuardar(this.fachada));
+        this.botCore.RegistrarComando(new ComandoAyuda());
     }
 
     /// <summary>
@@ -211,5 +218,43 @@ public class DiscordBot
     {
         Console.WriteLine(log.ToString());
         return Task.CompletedTask;
+    }
+    /// <summary>
+/// Envía un mensaje de bienvenida cuando el bot queda conectado.
+/// </summary>
+/// <returns>Una tarea asincrónica que representa el envío del mensaje.</returns>
+    private async Task ReadyAsync()
+    {
+        if (this.mensajeBienvenidaEnviado)
+        {
+            return;
+        }
+
+        this.mensajeBienvenidaEnviado = true;
+
+        foreach (SocketGuild servidor in this.client.Guilds)
+        {
+            SocketTextChannel? canal = servidor.SystemChannel;
+
+            if (canal == null)
+            {
+                foreach (SocketTextChannel canalTexto in servidor.TextChannels)
+                {
+                    canal = canalTexto;
+                    break;
+                }
+            }
+
+            if (canal != null)
+            {
+                await canal.SendMessageAsync(
+                    "👋 **Sistema de Recomendaciones iniciado correctamente.**\n\n" +
+                    "Usá `!ayuda` para ver los comandos disponibles.\n\n" +
+                    "Ejemplo rápido:\n" +
+                    "`!registrar`\n" +
+                    "`!preferencia rock`\n" +
+                    "`!recomendar`");
+            }
+        }
     }
 }
