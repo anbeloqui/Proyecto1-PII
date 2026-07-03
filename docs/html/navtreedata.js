@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Proyecto PII", "index.html", [
+  [ "ProyectoPII", "index.html", [
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ],
       [ "Package Members", "namespacemembers.html", [
@@ -55,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8_n_e_t_core_app_00_version_0av10_80_8_assembly_attributes_8cs.html",
-"namespacemembers_enum.html"
+"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ac9ae8ad9f4302412f137a620035427a4"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

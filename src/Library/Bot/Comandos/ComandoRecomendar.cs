@@ -7,7 +7,7 @@ namespace ProyectoPII.Bot.Comandos;
 
 /// <summary>
 /// Implementa el comando <c>!recomendar</c>, encargado de obtener
-/// recomendaciones de canciones o películas para el usuario que ejecutó el comando.
+/// recomendaciones para el usuario que ejecutó el comando.
 /// </summary>
 /// <remarks>
 /// <para>
@@ -15,11 +15,14 @@ namespace ProyectoPII.Bot.Comandos;
 /// las recomendaciones a la Fachada.
 /// </para>
 /// <para>
-/// El usuario debe indicar si desea recomendaciones de canciones o de películas.
+/// Opcionalmente puede recibir un filtro para recomendar únicamente
+/// canciones o películas. Si no se especifica ningún filtro, se muestran
+/// recomendaciones de todos los tipos disponibles.
 /// </para>
 /// <para>
 /// No contiene lógica de recomendación ni interactúa directamente con el
-/// motor del sistema.
+/// motor del sistema; únicamente delega la operación a la Fachada y adapta
+/// el resultado para su presentación en Discord.
 /// </para>
 /// </remarks>
 public class ComandoRecomendar : IComandoDiscord
@@ -71,33 +74,19 @@ public class ComandoRecomendar : IComandoDiscord
         ArgumentNullException.ThrowIfNull(message);
         ArgumentNullException.ThrowIfNull(argumentos);
 
-        if (argumentos.Length == 0)
-        {
-            await message.Channel.SendMessageAsync(
-                "Debés indicar qué querés recomendar: `!recomendar canciones` o `!recomendar peliculas`.");
-
-            return;
-        }
-
-        string filtro = string.Join(" ", argumentos)
-            .ToLowerInvariant()
-            .Replace("á", "a")
-            .Replace("é", "e")
-            .Replace("í", "i")
-            .Replace("ó", "o")
-            .Replace("ú", "u");
-
-        if (!EsFiltroValido(filtro))
-        {
-            await message.Channel.SendMessageAsync(
-                "Tipo de recomendación no válido. Usá `!recomendar canciones` o `!recomendar peliculas`.");
-
-            return;
-        }
-
         string nombreUsuario = message.Author.Username;
 
-        List<IRecomendable> recomendaciones = this.fachada.Recomendar(nombreUsuario);
+        List<IRecomendable> recomendaciones =
+            this.fachada.Recomendar(nombreUsuario);
+
+        string? filtro = ObtenerFiltro(argumentos);
+
+        if (!FiltroValido(filtro))
+        {
+            await message.Channel.SendMessageAsync(
+                "Filtro no válido.\nUsá: !recomendar, !recomendar canciones o !recomendar peliculas.");
+            return;
+        }
 
         List<IRecomendable> recomendacionesFiltradas =
             FiltrarRecomendaciones(recomendaciones, filtro);
@@ -105,14 +94,12 @@ public class ComandoRecomendar : IComandoDiscord
         if (recomendacionesFiltradas.Count == 0)
         {
             await message.Channel.SendMessageAsync(
-                $"No se encontraron recomendaciones de {ObtenerNombreTipo(filtro)} para tus preferencias.");
-
+                "No se encontraron recomendaciones para ese filtro.");
             return;
         }
 
         string respuesta =
-            ObtenerTitulo(filtro) +
-            Environment.NewLine +
+            "**Recomendaciones para ti:**" +
             Environment.NewLine +
             string.Join(
                 Environment.NewLine,
@@ -137,62 +124,71 @@ public class ComandoRecomendar : IComandoDiscord
     }
 
     /// <summary>
-    /// Valida si el filtro ingresado corresponde a un tipo de recomendación permitido.
-    /// </summary>
-    /// <param name="filtro">Filtro ingresado por el usuario.</param>
-    /// <returns><see langword="true"/> si el filtro es válido; de lo contrario, <see langword="false"/>.</returns>
-    private static bool EsFiltroValido(string filtro)
-    {
-        return filtro is "cancion" or "canciones" or "pelicula" or "peliculas";
-    }
-
-    /// <summary>
     /// Filtra las recomendaciones según el tipo solicitado por el usuario.
     /// </summary>
     /// <param name="recomendaciones">Recomendaciones obtenidas desde la Fachada.</param>
     /// <param name="filtro">Tipo solicitado: canciones o peliculas.</param>
     /// <returns>Lista de recomendaciones filtradas y limitada para mostrar.</returns>
     private static List<IRecomendable> FiltrarRecomendaciones(
-        List<IRecomendable> recomendaciones,
-        string filtro)
+    List<IRecomendable> recomendaciones,
+    string? filtro)
     {
         return filtro switch
         {
-            "canciones" or "cancion" => recomendaciones
+            "canciones" => recomendaciones
                 .Where(item => item is Cancion)
                 .Take(10)
                 .ToList(),
 
-            "peliculas" or "pelicula" => recomendaciones
+            "peliculas" => recomendaciones
                 .Where(item => item is Pelicula)
                 .Take(10)
                 .ToList(),
 
-            _ => new List<IRecomendable>()
+            _ => recomendaciones
+                .Where(item => item is Cancion)
+                .Take(10)
+                .Concat(
+                    recomendaciones
+                        .Where(item => item is Pelicula)
+                        .Take(10))
+                .ToList()
         };
     }
 
     /// <summary>
-    /// Obtiene el título que se mostrará en Discord según el tipo solicitado.
+    /// Obtiene el filtro solicitado por el usuario a partir de los argumentos.
     /// </summary>
-    /// <param name="filtro">Filtro ingresado por el usuario.</param>
-    /// <returns>Título del mensaje de recomendaciones.</returns>
-    private static string ObtenerTitulo(string filtro)
+    /// <param name="argumentos">Argumentos recibidos por el comando.</param>
+    /// <returns>Filtro solicitado, o null si no se indicó filtro.</returns>
+    private static string? ObtenerFiltro(string[] argumentos)
     {
-        return filtro is "canciones" or "cancion"
-            ? "**🎵 Recomendaciones de canciones:**"
-            : "**🎬 Recomendaciones de películas:**";
+        if (argumentos.Length == 0)
+        {
+            return null;
+        }
+
+        string filtro = string.Join(" ", argumentos)
+            .Trim()
+            .ToLowerInvariant();
+
+        return filtro switch
+        {
+            "musica" or "música" or "cancion" or "canciones" => "canciones",
+            "cine" or "pelicula" or "peliculas" => "peliculas",
+            _ => filtro
+        };
     }
 
     /// <summary>
-    /// Obtiene el nombre del tipo de recomendación para mensajes al usuario.
+    /// Indica si el filtro recibido es válido para el comando de recomendación.
     /// </summary>
-    /// <param name="filtro">Filtro ingresado por el usuario.</param>
-    /// <returns>Nombre del tipo solicitado.</returns>
-    private static string ObtenerNombreTipo(string filtro)
+    /// <param name="filtro">Filtro a validar.</param>
+    /// <returns>True si el filtro es válido; false en caso contrario.</returns>
+    private static bool FiltroValido(string? filtro)
     {
-        return filtro is "canciones" or "cancion"
-            ? "canciones"
-            : "películas";
+        return filtro is null
+            or "canciones"
+            or "peliculas";
     }
 }

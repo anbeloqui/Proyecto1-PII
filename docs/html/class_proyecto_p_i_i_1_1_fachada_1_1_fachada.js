@@ -1,9 +1,11 @@
 var class_proyecto_p_i_i_1_1_fachada_1_1_fachada =
 [
     [ "Fachada", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a9cd81f0ac44eba42ae09413183d51a07", null ],
+    [ "Fachada", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#af2180b0421d7d445df809d3a30d57d41", null ],
     [ "AgregarCancion", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#af114217f50bef257cb7fcf6376279ba6", null ],
     [ "AgregarInteraccion", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a260c0e84413431280919f08b4075d7a4", null ],
     [ "AgregarItem", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a3115b6d5102043011ce5c67155673a99", null ],
+    [ "AgregarPelicula", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#add6443f7fa8bd15ef6cb8dc78066e4e7", null ],
     [ "AgregarPreferencia", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#ae6bd2248dfc11670caf434565d35bef7", null ],
     [ "Dislike", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#ae7549d9e62d5d513e08f6ba66feae785", null ],
     [ "EliminarItem", "class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#acd9f18ae7ba20ba3b78f1fdeeee556a8", null ],

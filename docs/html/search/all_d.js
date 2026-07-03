@@ -1,10 +1,25 @@
 var searchData=
 [
-  ['realizar_20sobre_20un_20elemento_20del_20catálogo_0',['realizar sobre un elemento del catálogo.',['../namespace_proyecto_p_i_i_1_1_modelos.html#autotoc_md1',1,'']]],
-  ['recomendador_1',['Recomendador',['../class_proyecto_p_i_i_1_1_servicios_1_1_recomendador.html',1,'ProyectoPII.Servicios.Recomendador'],['../class_proyecto_p_i_i_1_1_servicios_1_1_recomendador.html#a5c0cd9bbe7e35a4c247f3d9cbfdf4a7c',1,'ProyectoPII.Servicios.Recomendador.Recomendador()'],['../class_proyecto_p_i_i_1_1_servicios_1_1_recomendador.html#a3c01fb4454ced1029672778004ca91b0',1,'ProyectoPII.Servicios.Recomendador.Recomendador(IEstrategiaRecomendacion estrategia)']]],
-  ['recomendador_2ecs_2',['Recomendador.cs',['../_recomendador_8cs.html',1,'']]],
-  ['recomendar_3',['Recomendar',['../class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html#a2715ac7947610c3f8d131edb99a9f909',1,'ProyectoPII.Estrategias.EstrategiaPorContenidoRelacionado.Recomendar()'],['../class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_historial.html#a4b51bbb55ea69966bb85dc8d3b40f1bd',1,'ProyectoPII.Estrategias.EstrategiaPorHistorial.Recomendar()'],['../class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_popularidad.html#a3d57b4f6a1c9dbe56d4d99fa45ff8d4c',1,'ProyectoPII.Estrategias.EstrategiaPorPopularidad.Recomendar()'],['../class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_preferencias.html#a46cf7b036377daf5fa7feaad4207fd23',1,'ProyectoPII.Estrategias.EstrategiaPorPreferencias.Recomendar()'],['../class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_usuarios_similares.html#a8092859114b643f92987750dd1f4d6ea',1,'ProyectoPII.Estrategias.EstrategiaPorUsuariosSimilares.Recomendar()'],['../class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a9ba9adbde9e692180dec1ea60210aa36',1,'ProyectoPII.Fachada.Fachada.Recomendar(string nombreUsuario)'],['../class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#ad27bec814554ca6f5c5a94459fad0e2b',1,'ProyectoPII.Fachada.Fachada.Recomendar(string nombreUsuario, string tipoEstrategia)'],['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html#abd647a5eac190ef3767cbd592165f964',1,'ProyectoPII.Interfaces.IEstrategiaRecomendacion.Recomendar()'],['../class_proyecto_p_i_i_1_1_servicios_1_1_recomendador.html#aa42d038a5949af2f5cd1bfefef513c12',1,'ProyectoPII.Servicios.Recomendador.Recomendar()'],['../class_proyecto_p_i_i_1_1_servicios_1_1_recommendation_engine.html#ae898ff418150e81be9c91224be388c6e',1,'ProyectoPII.Servicios.RecommendationEngine.Recomendar()']]],
-  ['recommendationengine_4',['RecommendationEngine',['../class_proyecto_p_i_i_1_1_servicios_1_1_recommendation_engine.html',1,'ProyectoPII.Servicios.RecommendationEngine'],['../class_proyecto_p_i_i_1_1_servicios_1_1_recommendation_engine.html#af295b5beeeba067ef213a30a5b613860',1,'ProyectoPII.Servicios.RecommendationEngine.RecommendationEngine(IEstrategiaRecomendacion estrategia)'],['../class_proyecto_p_i_i_1_1_servicios_1_1_recommendation_engine.html#aeb411bc59969a435d4f4bf92667c2f0b',1,'ProyectoPII.Servicios.RecommendationEngine.RecommendationEngine(IEstrategiaRecomendacion estrategia, IFiltroRecomendacion filtros, IRanker ranker)']]],
-  ['recommendationengine_2ecs_5',['RecommendationEngine.cs',['../_recommendation_engine_8cs.html',1,'']]],
-  ['registrarusuario_6',['RegistrarUsuario',['../class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a5e409d3ca483f8f00eabcb2d524a79e8',1,'ProyectoPII::Fachada::Fachada']]]
+  ['pelicula_0',['Pelicula',['../class_proyecto_p_i_i_1_1_modelos_1_1_pelicula.html',1,'ProyectoPII::Modelos']]],
+  ['pelicula_2ecs_1',['Pelicula.cs',['../_pelicula_8cs.html',1,'']]],
+  ['peliculasiniciales_2',['PeliculasIniciales',['../class_proyecto_p_i_i_1_1_datos_iniciales_1_1_peliculas_iniciales.html',1,'ProyectoPII::DatosIniciales']]],
+  ['peliculasiniciales_2ecs_3',['PeliculasIniciales.cs',['../_peliculas_iniciales_8cs.html',1,'']]],
+  ['preferenceranker_4',['PreferenceRanker',['../class_proyecto_p_i_i_1_1_ordenadores_1_1_preference_ranker.html',1,'ProyectoPII::Ordenadores']]],
+  ['preferenceranker_2ecs_5',['PreferenceRanker.cs',['../_preference_ranker_8cs.html',1,'']]],
+  ['preferencias_6',['Preferencias',['../class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html#a6181d4b5dda2ec93052f6b8d5ea7746d',1,'ProyectoPII::Modelos::Usuario']]],
+  ['procesarmensajeasync_7',['ProcesarMensajeAsync',['../class_proyecto_p_i_i_1_1_bot_1_1_bot_core.html#a363401f442f517c8996a41d90bf728eb',1,'ProyectoPII::Bot::BotCore']]],
+  ['proyectopii_8',['ProyectoPII',['../namespace_proyecto_p_i_i.html',1,'']]],
+  ['proyectopii_2eassemblyinfo_2ecs_9',['ProyectoPII.AssemblyInfo.cs',['../_proyecto_p_i_i_8_assembly_info_8cs.html',1,'']]],
+  ['proyectopii_2eglobalusings_2eg_2ecs_10',['ProyectoPII.GlobalUsings.g.cs',['../_proyecto_p_i_i_8_global_usings_8g_8cs.html',1,'']]],
+  ['proyectopii_3a_3abot_11',['Bot',['../namespace_proyecto_p_i_i_1_1_bot.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3abot_3a_3acomandos_12',['Comandos',['../namespace_proyecto_p_i_i_1_1_bot_1_1_comandos.html',1,'ProyectoPII::Bot']]],
+  ['proyectopii_3a_3adatosiniciales_13',['DatosIniciales',['../namespace_proyecto_p_i_i_1_1_datos_iniciales.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3aestrategias_14',['Estrategias',['../namespace_proyecto_p_i_i_1_1_estrategias.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3aexcepciones_15',['Excepciones',['../namespace_proyecto_p_i_i_1_1_excepciones.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3afachada_16',['Fachada',['../namespace_proyecto_p_i_i_1_1_fachada.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3afiltros_17',['Filtros',['../namespace_proyecto_p_i_i_1_1_filtros.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3ainterfaces_18',['Interfaces',['../namespace_proyecto_p_i_i_1_1_interfaces.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3amodelos_19',['Modelos',['../namespace_proyecto_p_i_i_1_1_modelos.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3aordenadores_20',['Ordenadores',['../namespace_proyecto_p_i_i_1_1_ordenadores.html',1,'ProyectoPII']]],
+  ['proyectopii_3a_3aservicios_21',['Servicios',['../namespace_proyecto_p_i_i_1_1_servicios.html',1,'ProyectoPII']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Proyecto PII: ProyectoPII.Bot.DiscordBot Class Reference</title>
+<title>ProyectoPII: ProyectoPII.Bot.DiscordBot Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Proyecto PII
+   <div id="projectname">ProyectoPII
    </div>
   </td>
  </tr>
@@ -119,18 +119,32 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_proyecto
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="namespace_proyecto_p_i_i_1_1_bot.html">Bot</a> de Discord encargado de recibir y responder comandos.  
+<p><a class="el" href="namespace_proyecto_p_i_i_1_1_bot.html">Bot</a> de Discord encargado de conectar con Discord y delegar los mensajes recibidos al núcleo de comandos del sistema.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a60338398bfc507461a1f60aeedd0b01a" id="r_a60338398bfc507461a1f60aeedd0b01a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a60338398bfc507461a1f60aeedd0b01a">DiscordBot</a> ()</td></tr>
-<tr class="memdesc:a60338398bfc507461a1f60aeedd0b01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia del bot.s.  <br /></td></tr>
+<tr class="memdesc:a60338398bfc507461a1f60aeedd0b01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la clase DiscordBot.  <br /></td></tr>
 <tr class="memitem:aa70f4012e1bd18bb23ba2bf079dc92da" id="r_aa70f4012e1bd18bb23ba2bf079dc92da"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#aa70f4012e1bd18bb23ba2bf079dc92da">IniciarAsync</a> (string token)</td></tr>
-<tr class="memdesc:aa70f4012e1bd18bb23ba2bf079dc92da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia sesión y conecta el bot a Discord.  <br /></td></tr>
+<tr class="memdesc:aa70f4012e1bd18bb23ba2bf079dc92da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia sesión en Discord y conecta el bot.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="namespace_proyecto_p_i_i_1_1_bot.html">Bot</a> de Discord encargado de recibir y responder comandos. </p>
+<div class="textblock"><p><a class="el" href="namespace_proyecto_p_i_i_1_1_bot.html">Bot</a> de Discord encargado de conectar con Discord y delegar los mensajes recibidos al núcleo de comandos del sistema. </p>
+<p>Esta clase pertenece a la capa externa de comunicación. Su responsabilidad es configurar el cliente de Discord, iniciar la conexión y enviar los mensajes recibidos a BotCore. </p>
+<p>No interpreta comandos directamente, no contiene lógica de negocio y no accede al motor de recomendación, estrategias, filtros, rankers ni modelos internos. </p>
+<p>Precondiciones: </p><ul>
+<li>
+El bot debe iniciarse con un token válido. </li>
+<li>
+La <a class="el" href="namespace_proyecto_p_i_i_1_1_fachada.html">Fachada</a> debe poder inicializarse correctamente. </li>
+</ul>
+<p>Postcondiciones: </p><ul>
+<li>
+El bot queda conectado a Discord. </li>
+<li>
+Los mensajes recibidos son delegados a BotCore. </li>
+</ul>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a60338398bfc507461a1f60aeedd0b01a" name="a60338398bfc507461a1f60aeedd0b01a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60338398bfc507461a1f60aeedd0b01a">&#9670;&#160;</a></span>DiscordBot()</h2>
@@ -147,7 +161,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializa una nueva instancia del bot.s. </p>
+<p>Inicializa una nueva instancia de la clase DiscordBot. </p>
+<p>Precondiciones: </p><ul>
+<li>
+No requiere parámetros externos. </li>
+</ul>
+<p>Postcondiciones: </p><ul>
+</ul>
+<p>Se crea una instancia de la <a class="el" href="namespace_proyecto_p_i_i_1_1_fachada.html">Fachada</a>. Se cargan las canciones iniciales del catálogo. Se configura el cliente de Discord. Se inicializa el núcleo de comandos. Se registran los comandos disponibles. </p>
 
 </div>
 </div>
@@ -167,13 +188,30 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicia sesión y conecta el bot a Discord. </p>
+<p>Inicia sesión en Discord y conecta el bot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">token</td><td>Token del bot.</td></tr>
+    <tr><td class="paramname">token</td><td>Token de autenticación del bot. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Una tarea asincrónica que representa la ejecución permanente del bot. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentException</td><td>Se lanza cuando <em>token</em>  es <code>null</code>, vacío o contiene únicamente espacios. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Precondiciones: </p><ul>
+<li>
+<em>token</em>  debe contener un token válido de Discord. </li>
+</ul>
+<p>Postcondiciones: </p><ul>
+<li>
+El bot inicia sesión en Discord. </li>
+<li>
+El bot queda escuchando mensajes entrantes. </li>
+</ul>
 
 </div>
 </div>

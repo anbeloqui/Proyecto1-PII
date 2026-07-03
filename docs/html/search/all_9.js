@@ -1,4 +1,20 @@
 var searchData=
 [
-  ['like_0',['Like',['../class_proyecto_p_i_i_1_1_fachada_1_1_fachada.html#a576b9fac34e861b0b7d018cd2d0d558d',1,'ProyectoPII.Fachada.Fachada.Like()'],['../namespace_proyecto_p_i_i_1_1_modelos.html#a171ddfb54eef53717f0e732ff1e0dff7a98b82c200a2e309b24cb481970f3fcc4',1,'ProyectoPII.Modelos.Like']]]
+  ['icomandodiscord_0',['IComandoDiscord',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_comando_discord.html',1,'ProyectoPII::Interfaces']]],
+  ['icomandodiscord_2ecs_1',['IComandoDiscord.cs',['../_i_comando_discord_8cs.html',1,'']]],
+  ['id_2',['Id',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html#a054e0c519e971bedf74b4ea368c0aec4',1,'ProyectoPII.Interfaces.IRecomendable.Id'],['../class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ac9ae8ad9f4302412f137a620035427a4',1,'ProyectoPII.Modelos.Cancion.Id'],['../class_proyecto_p_i_i_1_1_modelos_1_1_pelicula.html#a0d5ecae6a219c138ef7213ee657605db',1,'ProyectoPII.Modelos.Pelicula.Id'],['../class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html#a6d3a57a79d98af54b6f567d27d4afe03',1,'ProyectoPII.Modelos.Usuario.Id']]],
+  ['iestrategiarecomendacion_3',['IEstrategiaRecomendacion',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_estrategia_recomendacion.html',1,'ProyectoPII::Interfaces']]],
+  ['iestrategiarecomendacion_2ecs_4',['IEstrategiaRecomendacion.cs',['../_i_estrategia_recomendacion_8cs.html',1,'']]],
+  ['ifiltrorecomendacion_5',['IFiltroRecomendacion',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_filtro_recomendacion.html',1,'ProyectoPII::Interfaces']]],
+  ['ifiltrorecomendacion_2ecs_6',['IFiltroRecomendacion.cs',['../_i_filtro_recomendacion_8cs.html',1,'']]],
+  ['iniciarasync_7',['IniciarAsync',['../class_proyecto_p_i_i_1_1_bot_1_1_discord_bot.html#aa70f4012e1bd18bb23ba2bf079dc92da',1,'ProyectoPII::Bot::DiscordBot']]],
+  ['interaccion_8',['Interaccion',['../class_proyecto_p_i_i_1_1_modelos_1_1_interaccion.html',1,'ProyectoPII::Modelos']]],
+  ['interaccion_2ecs_9',['Interaccion.cs',['../_interaccion_8cs.html',1,'']]],
+  ['iordenadorrecomendacion_10',['IOrdenadorRecomendacion',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_ordenador_recomendacion.html',1,'ProyectoPII::Interfaces']]],
+  ['iordenadorrecomendacion_2ecs_11',['IOrdenadorRecomendacion.cs',['../_i_ordenador_recomendacion_8cs.html',1,'']]],
+  ['iranker_12',['IRanker',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_ranker.html',1,'ProyectoPII::Interfaces']]],
+  ['iranker_2ecs_13',['IRanker.cs',['../_i_ranker_8cs.html',1,'']]],
+  ['irecomendable_14',['IRecomendable',['../interface_proyecto_p_i_i_1_1_interfaces_1_1_i_recomendable.html',1,'ProyectoPII::Interfaces']]],
+  ['irecomendable_2ecs_15',['IRecomendable.cs',['../_i_recomendable_8cs.html',1,'']]],
+  ['itemid_16',['ItemId',['../class_proyecto_p_i_i_1_1_modelos_1_1_interaccion.html#ab8861347b9434b18d845859af01fd09f',1,'ProyectoPII::Modelos::Interaccion']]]
 ];
