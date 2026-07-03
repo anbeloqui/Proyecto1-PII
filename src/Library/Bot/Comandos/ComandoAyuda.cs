@@ -23,6 +23,17 @@ public class ComandoAyuda : IComandoDiscord
         ArgumentNullException.ThrowIfNull(message);
         ArgumentNullException.ThrowIfNull(argumentos);
 
+        await EnviarComandosAsync(message);
+        await EnviarPreferenciasCancionesAsync(message);
+        await EnviarPreferenciasPeliculasAsync(message);
+    }
+
+    /// <summary>
+    /// Envía la ayuda principal con los comandos disponibles.
+    /// </summary>
+    /// <param name="message">Mensaje recibido desde Discord.</param>
+    private static async Task EnviarComandosAsync(SocketMessage message)
+    {
         string ayuda = """
         👋 **Bienvenido al Sistema de Recomendaciones**
 
@@ -39,7 +50,6 @@ public class ComandoAyuda : IComandoDiscord
 
         `!preferencia <preferencia>`
         Agrega una preferencia a tu perfil.
-
         Ejemplos:
         `!preferencia rock`
         `!preferencia accion`
@@ -67,18 +77,29 @@ public class ComandoAyuda : IComandoDiscord
         Ejemplo: `!guardar 1001`
 
         **Ejemplo rápido para canciones**
-
         `!registrar`
         `!preferencia rock`
         `!recomendar canciones`
 
         **Ejemplo rápido para películas**
-
         `!registrar`
         `!preferencia accion`
         `!recomendar peliculas`
+        """;
 
-        **Preferencias disponibles para canciones**
+        await message.Channel.SendMessageAsync(ayuda);
+    }
+
+    /// <summary>
+    /// Envía las preferencias disponibles para canciones.
+    /// </summary>
+    /// <param name="message">Mensaje recibido desde Discord.</param>
+    private static async Task EnviarPreferenciasCancionesAsync(SocketMessage message)
+    {
+        string preferenciasCanciones = """
+        🎵 **Preferencias disponibles para canciones**
+
+        Usá estas palabras con el comando `!preferencia`.
 
         `rock`
         `pop`
@@ -116,7 +137,23 @@ public class ComandoAyuda : IComandoDiscord
         `moderno`
         `progresivo`
 
-        **Preferencias disponibles para películas**
+        Para recomendar canciones:
+        `!recomendar canciones`
+        """;
+
+        await message.Channel.SendMessageAsync(preferenciasCanciones);
+    }
+
+    /// <summary>
+    /// Envía las preferencias disponibles para películas.
+    /// </summary>
+    /// <param name="message">Mensaje recibido desde Discord.</param>
+    private static async Task EnviarPreferenciasPeliculasAsync(SocketMessage message)
+    {
+        string preferenciasPeliculas = """
+        🎬 **Preferencias disponibles para películas**
+
+        Usá estas palabras con el comando `!preferencia`.
 
         `accion`
         `aventura`
@@ -153,14 +190,10 @@ public class ComandoAyuda : IComandoDiscord
         `sobrenatural`
         `clasico`
 
-        **Recordatorio**
-        Para canciones usá:
-        `!recomendar canciones`
-
-        Para películas usá:
+        Para recomendar películas:
         `!recomendar peliculas`
         """;
 
-        await message.Channel.SendMessageAsync(ayuda);
+        await message.Channel.SendMessageAsync(preferenciasPeliculas);
     }
 }
