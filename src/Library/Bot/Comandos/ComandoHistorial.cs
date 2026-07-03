@@ -1,6 +1,7 @@
 using Discord.WebSocket;
 using ProyectoPII.Interfaces;
 using FachadaProyecto = ProyectoPII.Fachada.Fachada;
+using ProyectoPII.Modelos;
 
 namespace ProyectoPII.Bot.Comandos;
 
@@ -82,14 +83,67 @@ public class ComandoHistorial : IComandoDiscord
             return;
         }
 
+        List<IRecomendable> items = this.fachada.ObtenerItems();
+
         string respuesta =
             "**Tu historial:**" +
             Environment.NewLine +
             string.Join(
                 Environment.NewLine,
                 historial.Select(interaccion =>
-                    $"• {interaccion.Tipo} - ítem {interaccion.ItemId} - {interaccion.Fecha:g}"));
+                    FormatearInteraccion(interaccion, items)));
 
         await message.Channel.SendMessageAsync(respuesta);
+    }
+
+    /// <summary>
+    /// Genera el texto visible de una interacción del historial.
+    /// </summary>
+    /// <param name="interaccion">Interacción que se desea mostrar.</param>
+    /// <param name="items">Elementos disponibles en el catálogo.</param>
+    /// <returns>Texto formateado de la interacción.</returns>
+    private static string FormatearInteraccion(
+        Interaccion interaccion,
+        List<IRecomendable> items)
+    {
+        IRecomendable? item = items.FirstOrDefault(i => i.Id == interaccion.ItemId);
+
+        string elemento = item is null
+            ? $"ítem {interaccion.ItemId}"
+            : FormatearItem(item);
+
+        return $"{ObtenerIconoInteraccion(interaccion.Tipo)} {interaccion.Tipo} - {elemento} - {interaccion.Fecha:g}";
+    }
+
+    /// <summary>
+    /// Genera el texto visible de un elemento recomendable.
+    /// </summary>
+    /// <param name="item">Elemento recomendable que se desea mostrar.</param>
+    /// <returns>Texto formateado con tipo, identificador y nombre.</returns>
+    private static string FormatearItem(IRecomendable item)
+    {
+        return item switch
+        {
+            Cancion => $"🎵 [{item.Id}] {item.Nombre}",
+            Pelicula => $"🎬 [{item.Id}] {item.Nombre}",
+            _ => $"• [{item.Id}] {item.Nombre}"
+        };
+    }
+
+    /// <summary>
+    /// Obtiene el ícono asociado al tipo de interacción.
+    /// </summary>
+    /// <param name="tipo">Tipo de interacción registrada.</param>
+    /// <returns>Ícono representativo del tipo de interacción.</returns>
+    private static string ObtenerIconoInteraccion(TipoInteraccion tipo)
+    {
+        return tipo switch
+        {
+            TipoInteraccion.Like => "👍",
+            TipoInteraccion.Dislike => "👎",
+            TipoInteraccion.Guardado => "📌",
+            TipoInteraccion.Consumido => "✅",
+            _ => "•"
+        };
     }
 }

@@ -1,6 +1,7 @@
 using Discord.WebSocket;
 using ProyectoPII.Interfaces;
 using FachadaProyecto = ProyectoPII.Fachada.Fachada;
+using ProyectoPII.Modelos;
 
 namespace ProyectoPII.Bot.Comandos;
 
@@ -97,10 +98,17 @@ public class ComandoRecomendar : IComandoDiscord
 
         var recomendaciones = this.fachada.Recomendar(nombreUsuario);
 
-        if (recomendaciones.Count == 0)
+        string? filtro = argumentos.Length > 0
+            ? string.Join(" ", argumentos).ToLowerInvariant()
+            : null;
+
+        List<IRecomendable> recomendacionesFiltradas =
+            FiltrarRecomendaciones(recomendaciones, filtro);
+
+        if (recomendacionesFiltradas.Count == 0)
         {
             await message.Channel.SendMessageAsync(
-                "No se encontraron recomendaciones.");
+                "No se encontraron recomendaciones para ese filtro.");
             return;
         }
 
@@ -109,8 +117,52 @@ public class ComandoRecomendar : IComandoDiscord
             Environment.NewLine +
             string.Join(
                 Environment.NewLine,
-                recomendaciones.Select(item => $"• {item.Nombre}"));
+                recomendacionesFiltradas.Select(FormatearRecomendacion));
 
         await message.Channel.SendMessageAsync(respuesta);
+    }
+    
+    /// <summary>
+    /// Genera el texto visible de una recomendación para Discord.
+    /// </summary>
+    /// <param name="item">Elemento recomendable que se desea mostrar.</param>
+    /// <returns>Texto formateado con tipo, identificador y nombre del elemento.</returns>
+    private static string FormatearRecomendacion(IRecomendable item)
+    {
+        return item switch
+        {
+            Cancion => $"🎵 [{item.Id}] {item.Nombre}",
+            Pelicula => $"🎬 [{item.Id}] {item.Nombre}",
+            _ => $"• [{item.Id}] {item.Nombre}"
+        };
+    }
+
+    /// <summary>
+    /// Filtra las recomendaciones según el tipo solicitado por el usuario.
+    /// </summary>
+    /// <param name="recomendaciones">Recomendaciones obtenidas desde la Fachada.</param>
+    /// <param name="filtro">Tipo solicitado: canciones, peliculas o null.</param>
+    /// <returns>Lista de recomendaciones filtradas y limitada para mostrar.</returns>
+    private static List<IRecomendable> FiltrarRecomendaciones(
+        List<IRecomendable> recomendaciones,
+        string? filtro)
+    {
+        return filtro switch
+        {
+            "canciones" or "cancion" => recomendaciones
+                .Where(item => item is Cancion)
+                .Take(10)
+                .ToList(),
+
+            "peliculas" or "pelicula" => recomendaciones
+                .Where(item => item is Pelicula)
+                .Take(10)
+                .ToList(),
+
+            _ => recomendaciones
+                .GroupBy(item => item.GetType())
+                .SelectMany(grupo => grupo.Take(10))
+                .ToList()
+        };
     }
 }
