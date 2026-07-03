@@ -6,7 +6,7 @@ using ProyectoPII.Servicios;
 namespace ProyectoPII.Fachada;
 
 /// <summary>
-/// Inicializa una nueva instancia de la fachada.
+/// Representa la fachada principal del sistema.
 /// 
 /// Aplica el patrón Facade, centralizando el acceso al sistema
 /// y ocultando la complejidad interna de usuarios, catálogo y recomendaciones.
@@ -38,23 +38,27 @@ public class Fachada
     /// <param name="id">Identificador del usuario.</param>
     /// <param name="nombre">Nombre del usuario.</param>
     /// <remarks>
+    /// Precondición: el nombre del usuario no puede estar vacío.
     /// Precondición: no debe existir previamente un usuario con el mismo nombre.
     /// Postcondición: el usuario queda agregado a la lista de usuarios registrados.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre recibido es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioYaExiste">
     /// Se lanza cuando ya existe un usuario registrado con el mismo nombre.
     /// </exception>
     public void RegistrarUsuario(int id, string nombre)
-{
-    ValidarTextoObligatorio(nombre, "nombre");
-
-    if (ObtenerUsuario(nombre) != null)
     {
-        throw new ExcepcionUsuarioYaExiste(nombre);
-    }
+        ValidarTextoObligatorio(nombre, "nombre");
 
-    usuarios.Add(new Usuario { Id = id, Nombre = nombre });
-}
+        if (ObtenerUsuario(nombre) != null)
+        {
+            throw new ExcepcionUsuarioYaExiste(nombre);
+        }
+
+        usuarios.Add(new Usuario { Id = id, Nombre = nombre });
+    }
 
     /// <summary>
     /// Agrega un elemento recomendable al catálogo.
@@ -93,6 +97,10 @@ public class Fachada
     /// Precondición: los datos de la canción deben ser válidos.
     /// Postcondición: la canción queda creada y agregada al catálogo del sistema.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de la canción o el artista son nulos,
+    /// vacíos o contienen solo espacios.
+    /// </exception>
     public void AgregarCancion(
         int id,
         string nombre,
@@ -152,6 +160,7 @@ public class Fachada
 
         return usuario;
     }
+
     /// <summary>
     /// Valida que un texto obligatorio no sea nulo, vacío o compuesto solo por espacios.
     /// </summary>
@@ -172,6 +181,7 @@ public class Fachada
                 $"El campo '{nombreCampo}' no puede estar vacío.");
         }
     }
+
     /// <summary>
     /// Agrega una preferencia a un usuario registrado.
     /// </summary>
@@ -179,8 +189,13 @@ public class Fachada
     /// <param name="preferencia">Preferencia a agregar.</param>
     /// <remarks>
     /// Precondición: el usuario debe estar registrado en el sistema.
+    /// Precondición: la preferencia no puede estar vacía.
     /// Postcondición: la preferencia queda agregada al usuario indicado.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario o la preferencia son nulos,
+    /// vacíos o contienen solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -193,6 +208,7 @@ public class Fachada
 
         usuario.Preferencias.Add(preferencia);
     }
+
     /// <summary>
     /// Registra una interacción de un usuario registrado con un elemento recomendable.
     /// </summary>
@@ -205,6 +221,9 @@ public class Fachada
     /// Si la interacción es de tipo Consumido, también se registra el identificador
     /// del elemento en el historial de consumidos.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -212,27 +231,27 @@ public class Fachada
         string nombreUsuario,
         int itemId,
         TipoInteraccion tipo)
+    {
+        ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
+
+        Usuario usuario = ObtenerUsuarioRegistrado(nombreUsuario);
+
+        Interaccion interaccion = new Interaccion
         {
-            ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
+            UsuarioId = usuario.Id,
+            ItemId = itemId,
+            Tipo = tipo,
+            Fecha = DateTime.Now
+        };
 
-            Usuario usuario = ObtenerUsuarioRegistrado(nombreUsuario);
+        usuario.Historial.Agregar(interaccion);
 
-            Interaccion interaccion = new Interaccion
-            {
-                UsuarioId = usuario.Id,
-                ItemId = itemId,
-                Tipo = tipo,
-                Fecha = DateTime.Now
-            };
-
-            usuario.Historial.Agregar(interaccion);
-
-            // Compatibilidad con el recomendador actual.
-            if (tipo == TipoInteraccion.Consumido)
-            {
-                usuario.HistorialIds.Add(itemId);
-            }
+        // Compatibilidad con el recomendador actual.
+        if (tipo == TipoInteraccion.Consumido)
+        {
+            usuario.HistorialIds.Add(itemId);
         }
+    }
 
     /// <summary>
     /// Registra un Like de un usuario registrado sobre un elemento recomendable.
@@ -244,6 +263,9 @@ public class Fachada
     /// Postcondición: queda registrada una interacción de tipo Like
     /// en el historial del usuario.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -262,6 +284,9 @@ public class Fachada
     /// Postcondición: queda registrada una interacción de tipo Dislike
     /// en el historial del usuario.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -280,6 +305,9 @@ public class Fachada
     /// Postcondición: queda registrada una interacción de tipo Guardado
     /// en el historial del usuario.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -310,6 +338,9 @@ public class Fachada
     /// Precondición: el usuario debe estar registrado en el sistema.
     /// Postcondición: se devuelve la lista de interacciones asociada al usuario.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -331,6 +362,9 @@ public class Fachada
     /// Precondición: el usuario debe estar registrado en el sistema.
     /// Postcondición: se devuelve una lista de elementos recomendables para el usuario.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
@@ -350,21 +384,24 @@ public class Fachada
     /// Precondición: el tipo de estrategia debe corresponder a una estrategia disponible.
     /// Postcondición: se devuelve una lista de elementos recomendables para el usuario.
     /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el nombre de usuario es nulo, vacío o contiene solo espacios.
+    /// </exception>
     /// <exception cref="ExcepcionUsuarioNoEncontrado">
     /// Se lanza cuando no existe un usuario registrado con el nombre indicado.
     /// </exception>
     public List<IRecomendable> Recomendar(
         string nombreUsuario,
         string tipoEstrategia)
-        {
-            ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
+    {
+        ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
 
-            ObtenerUsuarioRegistrado(nombreUsuario);
+        ObtenerUsuarioRegistrado(nombreUsuario);
 
-            return recomendador.Recomendar(
-                nombreUsuario,
-                tipoEstrategia,
-                usuarios,
-                catalogo);
-        }
+        return recomendador.Recomendar(
+            nombreUsuario,
+            tipoEstrategia,
+            usuarios,
+            catalogo);
+    }
 }
