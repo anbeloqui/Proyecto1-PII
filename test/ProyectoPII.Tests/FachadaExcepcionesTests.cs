@@ -48,4 +48,25 @@ public void LikeLanzaExcepcionSiUsuarioNoExiste()
         fachada.Like("NoExiste", 1);
     });
 }
+[Fact]
+public void DislikeLanzaExcepcionSiUsuarioNoExiste()
+{
+    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+    {
+        fachada.Dislike("NoExiste", 1);
+    });
+}
+
+[Fact]
+public void GuardarParaDespuesLanzaExcepcionSiUsuarioNoExiste()
+{
+    ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+    Assert.Throws<ExcepcionUsuarioNoEncontrado>(() =>
+    {
+        fachada.GuardarParaDespues("NoExiste", 1);
+    });
+}
 }
