@@ -72,4 +72,42 @@ public class FachadaExcepcionesTests
             fachada.GuardarParaDespues("NoExiste", 1);
         });
     }
+    [Fact]
+    public void RegistrarUsuarioLanzaExcepcionSiNombreEstaVacio()
+    {
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+        Assert.Throws<ExcepcionDatoInvalido>(() =>
+        {
+            fachada.RegistrarUsuario(1, "");
+        });
+    }
+
+    [Fact]
+    public void AgregarPreferenciaLanzaExcepcionSiPreferenciaEstaVacia()
+    {
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+        fachada.RegistrarUsuario(1, "Andres");
+
+        Assert.Throws<ExcepcionDatoInvalido>(() =>
+        {
+            fachada.AgregarPreferencia("Andres", "");
+        });
+    }
+
+    [Fact]
+    public void AgregarCancionLanzaExcepcionSiNombreEstaVacio()
+    {
+        ProyectoPII.Fachada.Fachada fachada = new ProyectoPII.Fachada.Fachada();
+
+        Assert.Throws<ExcepcionDatoInvalido>(() =>
+        {
+            fachada.AgregarCancion(
+                1,
+                "",
+                "Artista",
+                new List<string> { "rock" });
+        });
+    }
 }

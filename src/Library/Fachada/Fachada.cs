@@ -45,14 +45,16 @@ public class Fachada
     /// Se lanza cuando ya existe un usuario registrado con el mismo nombre.
     /// </exception>
     public void RegistrarUsuario(int id, string nombre)
-    {
-        if (ObtenerUsuario(nombre) != null)
-        {
-            throw new ExcepcionUsuarioYaExiste(nombre);
-        }
+{
+    ValidarTextoObligatorio(nombre, "nombre");
 
-        usuarios.Add(new Usuario { Id = id, Nombre = nombre });
+    if (ObtenerUsuario(nombre) != null)
+    {
+        throw new ExcepcionUsuarioYaExiste(nombre);
     }
+
+    usuarios.Add(new Usuario { Id = id, Nombre = nombre });
+}
 
     /// <summary>
     /// Agrega un elemento recomendable al catálogo.
@@ -97,6 +99,9 @@ public class Fachada
         string artista,
         List<string> atributos)
     {
+        ValidarTextoObligatorio(nombre, "nombre");
+        ValidarTextoObligatorio(artista, "artista");
+
         Cancion cancion = new Cancion
         {
             Id = id,
@@ -147,7 +152,26 @@ public class Fachada
 
         return usuario;
     }
-
+    /// <summary>
+    /// Valida que un texto obligatorio no sea nulo, vacío o compuesto solo por espacios.
+    /// </summary>
+    /// <param name="valor">Texto a validar.</param>
+    /// <param name="nombreCampo">Nombre del campo validado.</param>
+    /// <remarks>
+    /// Precondición: el campo indicado debe contener un valor válido.
+    /// Postcondición: si el texto es válido, la ejecución continúa normalmente.
+    /// </remarks>
+    /// <exception cref="ExcepcionDatoInvalido">
+    /// Se lanza cuando el valor recibido es nulo, vacío o contiene solo espacios.
+    /// </exception>
+    private void ValidarTextoObligatorio(string valor, string nombreCampo)
+    {
+        if (string.IsNullOrWhiteSpace(valor))
+        {
+            throw new ExcepcionDatoInvalido(
+                $"El campo '{nombreCampo}' no puede estar vacío.");
+        }
+    }
     /// <summary>
     /// Agrega una preferencia a un usuario registrado.
     /// </summary>
@@ -162,11 +186,13 @@ public class Fachada
     /// </exception>
     public void AgregarPreferencia(string nombreUsuario, string preferencia)
     {
+        ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
+        ValidarTextoObligatorio(preferencia, "preferencia");
+
         Usuario usuario = ObtenerUsuarioRegistrado(nombreUsuario);
 
         usuario.Preferencias.Add(preferencia);
     }
-
     /// <summary>
     /// Registra una interacción de un usuario registrado con un elemento recomendable.
     /// </summary>
@@ -186,25 +212,27 @@ public class Fachada
         string nombreUsuario,
         int itemId,
         TipoInteraccion tipo)
-    {
-        Usuario usuario = ObtenerUsuarioRegistrado(nombreUsuario);
-
-        Interaccion interaccion = new Interaccion
         {
-            UsuarioId = usuario.Id,
-            ItemId = itemId,
-            Tipo = tipo,
-            Fecha = DateTime.Now
-        };
+            ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
 
-        usuario.Historial.Agregar(interaccion);
+            Usuario usuario = ObtenerUsuarioRegistrado(nombreUsuario);
 
-        // Compatibilidad con el recomendador actual.
-        if (tipo == TipoInteraccion.Consumido)
-        {
-            usuario.HistorialIds.Add(itemId);
+            Interaccion interaccion = new Interaccion
+            {
+                UsuarioId = usuario.Id,
+                ItemId = itemId,
+                Tipo = tipo,
+                Fecha = DateTime.Now
+            };
+
+            usuario.Historial.Agregar(interaccion);
+
+            // Compatibilidad con el recomendador actual.
+            if (tipo == TipoInteraccion.Consumido)
+            {
+                usuario.HistorialIds.Add(itemId);
+            }
         }
-    }
 
     /// <summary>
     /// Registra un Like de un usuario registrado sobre un elemento recomendable.
@@ -287,6 +315,8 @@ public class Fachada
     /// </exception>
     public List<Interaccion> VerHistorial(string nombreUsuario)
     {
+        ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
+
         Usuario usuario = ObtenerUsuarioRegistrado(nombreUsuario);
 
         return usuario.Historial.ObtenerTodas();
@@ -326,13 +356,15 @@ public class Fachada
     public List<IRecomendable> Recomendar(
         string nombreUsuario,
         string tipoEstrategia)
-    {
-        ObtenerUsuarioRegistrado(nombreUsuario);
+        {
+            ValidarTextoObligatorio(nombreUsuario, "nombreUsuario");
 
-        return recomendador.Recomendar(
-            nombreUsuario,
-            tipoEstrategia,
-            usuarios,
-            catalogo);
-    }
+            ObtenerUsuarioRegistrado(nombreUsuario);
+
+            return recomendador.Recomendar(
+                nombreUsuario,
+                tipoEstrategia,
+                usuarios,
+                catalogo);
+        }
 }
