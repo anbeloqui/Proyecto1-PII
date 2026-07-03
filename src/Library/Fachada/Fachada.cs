@@ -14,16 +14,18 @@ public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
+    private Recomendador recomendador;
     
     /// <summary>
     /// Inicializa una nueva instancia de la fachada, creando la lista de usuarios,
     /// el catálogo y el motor de recomendaciones por preferencias.
     /// </summary>
-    public Fachada()
-    {
-        usuarios = new List<Usuario>();
-        catalogo = new Catalogo();
-    }
+   public Fachada()
+{
+    usuarios = new List<Usuario>();
+    catalogo = new Catalogo();
+    recomendador = new Recomendador();
+}
 
     /// <summary>
     /// Registra un nuevo usuario en el sistema.
@@ -207,22 +209,14 @@ public class Fachada
     /// <param name="nombreUsuario">Nombre del usuario.</param>
     /// <param name="tipoEstrategia">Tipo de estrategia a utilizar.</param>
     /// <returns>Lista de elementos recomendados.</returns>
-    public List<IRecomendable> Recomendar(
-        string nombreUsuario,
-        string tipoEstrategia)
+public List<IRecomendable> Recomendar(
+    string nombreUsuario,
+    string tipoEstrategia)
     {
-        Usuario? usuario = ObtenerUsuario(nombreUsuario);
-
-        if (usuario == null)
-        {
-            return new List<IRecomendable>();
-        }
-
-        RecommendationEngine engine = new RecommendationEngine(
-            StrategyFactory.Crear(tipoEstrategia, usuarios));
-
-        return engine.Recomendar(
-            usuario,
-            ObtenerItems());
+        return recomendador.Recomendar(
+            nombreUsuario,
+            tipoEstrategia,
+            usuarios,
+            catalogo);
     }
 }
