@@ -1,35 +1,31 @@
 using ProyectoPII.Interfaces;
 using ProyectoPII.Modelos;
 using ProyectoPII.Servicios;
-using ProyectoPII.Estrategias;
-
 
 namespace ProyectoPII.Fachada;
 
 /// <summary>
-/// Punto de entrada principal del sistema.
-/// Coordina usuarios, catálogo y recomendador.
+/// Inicializa una nueva instancia de la fachada.
+/// 
+/// Aplica el patrón Facade, centralizando el acceso al sistema
+/// y ocultando la complejidad interna de usuarios, catálogo y recomendaciones.
 /// </summary>
 public class Fachada
 {
     private List<Usuario> usuarios;
     private Catalogo catalogo;
-    private RecommendationEngine recommendationEngine;
-
-
+    private Recomendador recomendador;
+    
     /// <summary>
     /// Inicializa una nueva instancia de la fachada, creando la lista de usuarios,
     /// el catálogo y el motor de recomendaciones por preferencias.
     /// </summary>
-    public Fachada()
-    {
-        usuarios = new List<Usuario>();
-        catalogo = new Catalogo();
-        recommendationEngine = new RecommendationEngine(
-            new EstrategiaPorPreferencias()
-        );
-
-    }
+   public Fachada()
+{
+    usuarios = new List<Usuario>();
+    catalogo = new Catalogo();
+    recomendador = new Recomendador();
+}
 
     /// <summary>
     /// Registra un nuevo usuario en el sistema.
@@ -213,22 +209,14 @@ public class Fachada
     /// <param name="nombreUsuario">Nombre del usuario.</param>
     /// <param name="tipoEstrategia">Tipo de estrategia a utilizar.</param>
     /// <returns>Lista de elementos recomendados.</returns>
-    public List<IRecomendable> Recomendar(
-        string nombreUsuario,
-        string tipoEstrategia)
+public List<IRecomendable> Recomendar(
+    string nombreUsuario,
+    string tipoEstrategia)
     {
-        Usuario? usuario = ObtenerUsuario(nombreUsuario);
-
-        if (usuario == null)
-        {
-            return new List<IRecomendable>();
-        }
-
-        RecommendationEngine engine = new RecommendationEngine(
-            StrategyFactory.Crear(tipoEstrategia, usuarios));
-
-        return engine.Recomendar(
-            usuario,
-            ObtenerItems());
+        return recomendador.Recomendar(
+            nombreUsuario,
+            tipoEstrategia,
+            usuarios,
+            catalogo);
     }
 }
