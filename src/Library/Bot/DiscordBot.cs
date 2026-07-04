@@ -81,6 +81,7 @@ public class DiscordBot
 
         CancionesIniciales.Cargar(this.fachada);
         PeliculasIniciales.Cargar(this.fachada);
+        UsuariosIniciales.Cargar(this.fachada);
 
         this.client = new DiscordSocketClient(new DiscordSocketConfig
         {
