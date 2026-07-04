@@ -1,86 +1,73 @@
 classDiagram
 direction LR
 
-class IRecomendable {
+class DiscordBot
+class BotCore
+class IComandoDiscord {
   <<interface>>
-  +int Id
-  +string Nombre
-  +List~string~ Atributos
+  +Nombre string
+  +EjecutarAsync(SocketMessage, string[]) Task
 }
 
-class Cancion {
-  +int Id
-  +string Nombre
-  +string Artista
-  +List~string~ Atributos
-}
+class ComandoPing
+class ComandoAyuda
+class ComandoRegistrar
+class ComandoPreferencia
+class ComandoRecomendar
+class ComandoHistorial
+class ComandoLike
+class ComandoDislike
+class ComandoGuardar
+class ComandoConsumido
 
-Cancion ..|> IRecomendable
+DiscordBot --> BotCore
+BotCore --> IComandoDiscord
 
-class Usuario {
-  +int Id
-  +string Nombre
-  +List~string~ Preferencias
-  +List~int~ HistorialIds
-  +Historial Historial
-}
+IComandoDiscord <|.. ComandoPing
+IComandoDiscord <|.. ComandoAyuda
+IComandoDiscord <|.. ComandoRegistrar
+IComandoDiscord <|.. ComandoPreferencia
+IComandoDiscord <|.. ComandoRecomendar
+IComandoDiscord <|.. ComandoHistorial
+IComandoDiscord <|.. ComandoLike
+IComandoDiscord <|.. ComandoDislike
+IComandoDiscord <|.. ComandoGuardar
+IComandoDiscord <|.. ComandoConsumido
 
-class TipoInteraccion {
-  <<enum>>
-  Consumido
-  Like
-  Dislike
-  Guardado
-}
-
-class Interaccion {
-  +int UsuarioId
-  +int ItemId
-  +TipoInteraccion Tipo
-  +DateTime Fecha
-}
-
-class Historial {
-  +Agregar(Interaccion)
-  +ObtenerTodas() List~Interaccion~
-  +ObtenerItemsConsumidos() List~int~
-  +ObtenerItemsConLike() List~int~
-  +ObtenerItemsGuardados() List~int~
-}
-
-Usuario "1" --> "1" Historial
-Historial "1" --> "*" Interaccion
-Interaccion --> TipoInteraccion
-
-class Catalogo {
-  +AgregarItem(IRecomendable)
-  +EliminarItem(int)
-  +ObtenerItems() List~IRecomendable~
-}
-
-Catalogo "1" --> "*" IRecomendable
+ComandoRegistrar --> Fachada
+ComandoPreferencia --> Fachada
+ComandoRecomendar --> Fachada
+ComandoHistorial --> Fachada
+ComandoLike --> Fachada
+ComandoDislike --> Fachada
+ComandoGuardar --> Fachada
+ComandoConsumido --> Fachada
 
 class Fachada {
   +RegistrarUsuario(int, string)
-  +AgregarItem(IRecomendable)
-  +EliminarItem(int)
-  +AgregarCancion(int, string, string, List~string~)
-  +ObtenerUsuario(string) Usuario
   +AgregarPreferencia(string, string)
   +AgregarInteraccion(string, int, TipoInteraccion)
   +Like(string, int)
   +Dislike(string, int)
   +GuardarParaDespues(string, int)
-  +ObtenerItems() List~IRecomendable~
   +VerHistorial(string) List~Interaccion~
   +Recomendar(string) List~IRecomendable~
   +Recomendar(string, string) List~IRecomendable~
+  +ObtenerItems() List~IRecomendable~
 }
 
-Fachada --> Usuario
+class Recomendador
+class RecommendationEngine
+class StrategyFactory
+
 Fachada --> Catalogo
-Fachada --> RecommendationEngine
-Fachada --> StrategyFactory
+Fachada --> Usuario
+Fachada --> Recomendador
+Recomendador --> StrategyFactory
+Recomendador --> RecommendationEngine
+RecommendationEngine --> IEstrategiaRecomendacion
+RecommendationEngine --> IFiltroRecomendacion
+RecommendationEngine --> IRanker
 
 class IEstrategiaRecomendacion {
   <<interface>>
@@ -93,73 +80,114 @@ class EstrategiaPorPopularidad
 class EstrategiaPorUsuariosSimilares
 class EstrategiaPorContenidoRelacionado
 
-EstrategiaPorPreferencias ..|> IEstrategiaRecomendacion
-EstrategiaPorHistorial ..|> IEstrategiaRecomendacion
-EstrategiaPorPopularidad ..|> IEstrategiaRecomendacion
-EstrategiaPorUsuariosSimilares ..|> IEstrategiaRecomendacion
-EstrategiaPorContenidoRelacionado ..|> IEstrategiaRecomendacion
+IEstrategiaRecomendacion <|.. EstrategiaPorPreferencias
+IEstrategiaRecomendacion <|.. EstrategiaPorHistorial
+IEstrategiaRecomendacion <|.. EstrategiaPorPopularidad
+IEstrategiaRecomendacion <|.. EstrategiaPorUsuariosSimilares
+IEstrategiaRecomendacion <|.. EstrategiaPorContenidoRelacionado
 
-class StrategyFactory {
-  +Crear(string, List~Usuario~) IEstrategiaRecomendacion
-}
-
-StrategyFactory ..> IEstrategiaRecomendacion : create
+StrategyFactory ..> IEstrategiaRecomendacion : crea
 
 class IFiltroRecomendacion {
   <<interface>>
   +Filtrar(List~IRecomendable~) List~IRecomendable~
 }
 
-class FilterChain {
-  +AgregarFiltro(IFiltroRecomendacion)
-  +Filtrar(List~IRecomendable~) List~IRecomendable~
-}
-
+class FilterChain
 class FiltroNoRepetirConsumidos
 class FiltroPorAtributo
 
-FilterChain ..|> IFiltroRecomendacion
-FiltroNoRepetirConsumidos ..|> IFiltroRecomendacion
-FiltroPorAtributo ..|> IFiltroRecomendacion
-FilterChain "1" --> "*" IFiltroRecomendacion
+IFiltroRecomendacion <|.. FilterChain
+IFiltroRecomendacion <|.. FiltroNoRepetirConsumidos
+IFiltroRecomendacion <|.. FiltroPorAtributo
+FilterChain --> IFiltroRecomendacion
 
 class IRanker {
   <<interface>>
   +Ordenar(List~IRecomendable~) List~IRecomendable~
 }
 
-class PreferenceRanker {
-  +Ordenar(List~IRecomendable~) List~IRecomendable~
-}
-
-PreferenceRanker ..|> IRanker
+class PreferenceRanker
+IRanker <|.. PreferenceRanker
 
 class IOrdenadorRecomendacion {
   <<interface>>
   +Ordenar(List~IRecomendable~) List~IRecomendable~
 }
 
-class OrdenadorPorNombre {
-  +Ordenar(List~IRecomendable~) List~IRecomendable~
+class OrdenadorPorNombre
+IOrdenadorRecomendacion <|.. OrdenadorPorNombre
+
+class IRecomendable {
+  <<interface>>
+  +Id int
+  +Nombre string
+  +Atributos List~string~
 }
 
-OrdenadorPorNombre ..|> IOrdenadorRecomendacion
-
-class RecommendationEngine {
-  +RecommendationEngine(IEstrategiaRecomendacion)
-  +RecommendationEngine(IEstrategiaRecomendacion, IFiltroRecomendacion, IRanker)
-  +Recomendar(Usuario, List~IRecomendable~) List~IRecomendable~
+class Cancion {
+  +Id int
+  +Nombre string
+  +Artista string
+  +Atributos List~string~
 }
 
-RecommendationEngine --> IEstrategiaRecomendacion
-RecommendationEngine --> IFiltroRecomendacion
-RecommendationEngine --> FilterChain
-RecommendationEngine --> IRanker
-
-class Recomendador {
-  +Recomendador()
-  +Recomendador(IEstrategiaRecomendacion)
-  +Recomendar(Usuario, List~IRecomendable~) List~IRecomendable~
+class Pelicula {
+  +Id int
+  +Nombre string
+  +Director string
+  +Atributos List~string~
 }
 
-Recomendador --> IEstrategiaRecomendacion
+IRecomendable <|.. Cancion
+IRecomendable <|.. Pelicula
+
+class Catalogo {
+  +AgregarItem(IRecomendable)
+  +EliminarItem(int)
+  +ObtenerItems() List~IRecomendable~
+}
+
+Catalogo --> IRecomendable
+
+class Usuario {
+  +Id int
+  +Nombre string
+  +Preferencias List~string~
+  +Historial Historial
+}
+
+class Historial {
+  +Agregar(Interaccion)
+  +ObtenerTodas() List~Interaccion~
+  +ObtenerItemsConsumidos() List~int~
+  +ObtenerItemsConLike() List~int~
+  +ObtenerItemsGuardados() List~int~
+}
+
+class Interaccion {
+  +UsuarioId int
+  +ItemId int
+  +Tipo TipoInteraccion
+  +Fecha DateTime
+}
+
+class TipoInteraccion {
+  <<enum>>
+  Consumido
+  Like
+  Dislike
+  Guardado
+}
+
+Usuario --> Historial
+Historial --> Interaccion
+Interaccion --> TipoInteraccion
+
+class CancionesIniciales
+class PeliculasIniciales
+class UsuariosIniciales
+
+DiscordBot --> CancionesIniciales
+DiscordBot --> PeliculasIniciales
+DiscordBot --> UsuariosIniciales
