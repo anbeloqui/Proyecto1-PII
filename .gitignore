@@ -26,3 +26,6 @@ appsettings.Development.json
 discord-token.txt
 token.txt
 config.local.json
+
+.DS_Store
+**/.DS_Store
