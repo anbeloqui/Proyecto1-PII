@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#adaf2d15c62cda35d66c7220b62ce1994":[1,0,0,5,2,0],
+"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html":[0,0,0,7,0],
+"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html":[1,0,0,7,0],
+"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#a21fb0e436a76e9bf8516e5fee14a82fd":[0,0,0,7,0,3],
+"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#a21fb0e436a76e9bf8516e5fee14a82fd":[1,0,0,7,0,3],
 "class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ac9ae8ad9f4302412f137a620035427a4":[0,0,0,7,0,2],
 "class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ac9ae8ad9f4302412f137a620035427a4":[1,0,0,7,0,2],
 "class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ad639e1ce627ab7f1e0e96cd8ae1e7b99":[0,0,0,7,0,1],

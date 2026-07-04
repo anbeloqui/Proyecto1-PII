@@ -49,6 +49,7 @@ var NAVTREEINDEX0 =
 "_strategy_factory_8cs.html":[2,0,0,0,10,2],
 "_tipo_interaccion_8cs.html":[2,0,0,0,7,5],
 "_usuario_8cs.html":[2,0,0,0,7,6],
+"_usuarios_iniciales_8cs.html":[2,0,0,0,1,2],
 "annotated.html":[1,0],
 "class_proyecto_p_i_i_1_1_bot_1_1_bot_core.html":[0,0,0,0,1],
 "class_proyecto_p_i_i_1_1_bot_1_1_bot_core.html":[1,0,0,0,1],
@@ -150,6 +151,10 @@ var NAVTREEINDEX0 =
 "class_proyecto_p_i_i_1_1_datos_iniciales_1_1_peliculas_iniciales.html#a132bd5cbc548680120c48d50c0ec178d":[1,0,0,1,1,1],
 "class_proyecto_p_i_i_1_1_datos_iniciales_1_1_peliculas_iniciales.html#a1afc84da416890e125ee57cdc4b20642":[0,0,0,1,1,0],
 "class_proyecto_p_i_i_1_1_datos_iniciales_1_1_peliculas_iniciales.html#a1afc84da416890e125ee57cdc4b20642":[1,0,0,1,1,0],
+"class_proyecto_p_i_i_1_1_datos_iniciales_1_1_usuarios_iniciales.html":[0,0,0,1,2],
+"class_proyecto_p_i_i_1_1_datos_iniciales_1_1_usuarios_iniciales.html":[1,0,0,1,2],
+"class_proyecto_p_i_i_1_1_datos_iniciales_1_1_usuarios_iniciales.html#a27041e24f83503cdffdc790eb50253f6":[0,0,0,1,2,0],
+"class_proyecto_p_i_i_1_1_datos_iniciales_1_1_usuarios_iniciales.html#a27041e24f83503cdffdc790eb50253f6":[1,0,0,1,2,0],
 "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html":[0,0,0,2,0],
 "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html":[1,0,0,2,0],
 "class_proyecto_p_i_i_1_1_estrategias_1_1_estrategia_por_contenido_relacionado.html#a2715ac7947610c3f8d131edb99a9f909":[0,0,0,2,0,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX0 =
 "class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html":[1,0,0,5,2],
 "class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#ab65d788ca99d5895e5e2a8c3e1355c17":[0,0,0,5,2,1],
 "class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#ab65d788ca99d5895e5e2a8c3e1355c17":[1,0,0,5,2,1],
-"class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#adaf2d15c62cda35d66c7220b62ce1994":[0,0,0,5,2,0],
-"class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#adaf2d15c62cda35d66c7220b62ce1994":[1,0,0,5,2,0],
-"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html":[0,0,0,7,0],
-"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html":[1,0,0,7,0],
-"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#a21fb0e436a76e9bf8516e5fee14a82fd":[0,0,0,7,0,3],
-"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#a21fb0e436a76e9bf8516e5fee14a82fd":[1,0,0,7,0,3]
+"class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#adaf2d15c62cda35d66c7220b62ce1994":[0,0,0,5,2,0]
 };

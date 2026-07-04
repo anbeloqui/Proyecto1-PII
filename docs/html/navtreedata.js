@@ -25,9 +25,9 @@
 var NAVTREE =
 [
   [ "ProyectoPII", "index.html", [
-    [ "Packages", "namespaces.html", [
-      [ "Package List", "namespaces.html", "namespaces_dup" ],
-      [ "Package Members", "namespacemembers.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
@@ -55,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8_n_e_t_core_app_00_version_0av10_80_8_assembly_attributes_8cs.html",
-"class_proyecto_p_i_i_1_1_modelos_1_1_cancion.html#ac9ae8ad9f4302412f137a620035427a4"
+"class_proyecto_p_i_i_1_1_filtros_1_1_filtro_por_atributo.html#adaf2d15c62cda35d66c7220b62ce1994"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17c521cf1c6095cb61b6ab315dcf6ff4" id="r_a17c521cf1c6095cb61b6ab315dcf6ff4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a17c521cf1c6095cb61b6ab315dcf6ff4">ComandoRecomendar</a> (<a class="el" href="_comando_consumido_8cs.html#a1179b1394d379fec7fd60e305536d525">FachadaProyecto</a> fachada)</td></tr>
 <tr class="memdesc:a17c521cf1c6095cb61b6ab315dcf6ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la clase ComandoRecomendar.  <br /></td></tr>
 <tr class="memitem:a272dbff9f2a8343a80fadaa0bca76817" id="r_a272dbff9f2a8343a80fadaa0bca76817"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a272dbff9f2a8343a80fadaa0bca76817">EjecutarAsync</a> (SocketMessage message, string[] argumentos)</td></tr>
-<tr class="memdesc:a272dbff9f2a8343a80fadaa0bca76817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene recomendaciones de canciones o películas para el usuario que ejecutó el comando.  <br /></td></tr>
+<tr class="memdesc:a272dbff9f2a8343a80fadaa0bca76817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene recomendaciones para el usuario que ejecutó el comando.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -154,6 +154,9 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">ProyectoPII.Bot.Comandos.ComandoRecomendar.ComandoRecomendar </td>
@@ -162,6 +165,11 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Inicializa una nueva instancia de la clase ComandoRecomendar. </p>
@@ -186,6 +194,9 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">async Task ProyectoPII.Bot.Comandos.ComandoRecomendar.EjecutarAsync </td>
@@ -198,13 +209,18 @@ Properties</h2></td></tr>
           <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>argumentos</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Obtiene recomendaciones de canciones o películas para el usuario que ejecutó el comando. </p>
+<p>Obtiene recomendaciones para el usuario que ejecutó el comando. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>Mensaje recibido desde Discord. </td></tr>
-    <tr><td class="paramname">argumentos</td><td>Argumentos enviados junto al comando. Debe indicarse <code>canciones</code> o <code>peliculas</code>. </td></tr>
+    <tr><td class="paramname">argumentos</td><td>Argumentos enviados junto al comando. Opcionalmente puede indicarse una estrategia de recomendación (<code>preferencias</code>, <code>historial</code>, <code>popularidad</code>, <code>similares</code> o <code>contenido</code>) y un tipo de contenido (<code>canciones</code> o <code>peliculas</code>). Si no se especifican argumentos, se utiliza la estrategia por preferencias y se muestran recomendaciones de todos los tipos disponibles. </td></tr>
   </table>
   </dd>
 </dl>

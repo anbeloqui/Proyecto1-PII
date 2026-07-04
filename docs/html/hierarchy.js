@@ -52,5 +52,6 @@ var hierarchy =
     [ "ProyectoPII.Servicios.Recomendador", "class_proyecto_p_i_i_1_1_servicios_1_1_recomendador.html", null ],
     [ "ProyectoPII.Servicios.RecommendationEngine", "class_proyecto_p_i_i_1_1_servicios_1_1_recommendation_engine.html", null ],
     [ "ProyectoPII.Servicios.StrategyFactory", "class_proyecto_p_i_i_1_1_servicios_1_1_strategy_factory.html", null ],
-    [ "ProyectoPII.Modelos.Usuario", "class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html", null ]
+    [ "ProyectoPII.Modelos.Usuario", "class_proyecto_p_i_i_1_1_modelos_1_1_usuario.html", null ],
+    [ "ProyectoPII.DatosIniciales.UsuariosIniciales", "class_proyecto_p_i_i_1_1_datos_iniciales_1_1_usuarios_iniciales.html", null ]
 ];

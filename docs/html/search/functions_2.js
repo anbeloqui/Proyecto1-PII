@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cargar_0',['Cargar',['../class_proyecto_p_i_i_1_1_datos_iniciales_1_1_canciones_iniciales.html#a87e852a40934e2012655b90bb7817288',1,'ProyectoPII.DatosIniciales.CancionesIniciales.Cargar()'],['../class_proyecto_p_i_i_1_1_datos_iniciales_1_1_peliculas_iniciales.html#a1afc84da416890e125ee57cdc4b20642',1,'ProyectoPII.DatosIniciales.PeliculasIniciales.Cargar()']]],
+  ['cargar_0',['Cargar',['../class_proyecto_p_i_i_1_1_datos_iniciales_1_1_canciones_iniciales.html#a87e852a40934e2012655b90bb7817288',1,'ProyectoPII.DatosIniciales.CancionesIniciales.Cargar()'],['../class_proyecto_p_i_i_1_1_datos_iniciales_1_1_peliculas_iniciales.html#a1afc84da416890e125ee57cdc4b20642',1,'ProyectoPII.DatosIniciales.PeliculasIniciales.Cargar()'],['../class_proyecto_p_i_i_1_1_datos_iniciales_1_1_usuarios_iniciales.html#a27041e24f83503cdffdc790eb50253f6',1,'ProyectoPII.DatosIniciales.UsuariosIniciales.Cargar()']]],
   ['comandoconsumido_1',['ComandoConsumido',['../class_proyecto_p_i_i_1_1_bot_1_1_comandos_1_1_comando_consumido.html#a44f25b64874f8c67d9d19e55b80bc660',1,'ProyectoPII::Bot::Comandos::ComandoConsumido']]],
   ['comandodislike_2',['ComandoDislike',['../class_proyecto_p_i_i_1_1_bot_1_1_comandos_1_1_comando_dislike.html#a0c0013b2d6eb58b31f697516820895ff',1,'ProyectoPII::Bot::Comandos::ComandoDislike']]],
   ['comandoguardar_3',['ComandoGuardar',['../class_proyecto_p_i_i_1_1_bot_1_1_comandos_1_1_comando_guardar.html#afbfaf3fcb479287ddc15d8ed21354ec7',1,'ProyectoPII::Bot::Comandos::ComandoGuardar']]],
